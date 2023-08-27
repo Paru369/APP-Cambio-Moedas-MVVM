@@ -16,6 +16,7 @@
 		410A2FED2A9BFF8600C449D3 /* CurrencyRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A2FEC2A9BFF8600C449D3 /* CurrencyRoute.swift */; };
 		410A2FF02A9C100700C449D3 /* BaseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A2FEF2A9C100700C449D3 /* BaseStore.swift */; };
 		410A2FF32A9C11E600C449D3 /* RatesFluctuationObejct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A2FF22A9C11E600C449D3 /* RatesFluctuationObejct.swift */; };
+		410A2FF52A9C1A0C00C449D3 /* CurrencySymbolObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A2FF42A9C1A0C00C449D3 /* CurrencySymbolObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		410A2FEC2A9BFF8600C449D3 /* CurrencyRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRoute.swift; sourceTree = "<group>"; };
 		410A2FEF2A9C100700C449D3 /* BaseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseStore.swift; sourceTree = "<group>"; };
 		410A2FF22A9C11E600C449D3 /* RatesFluctuationObejct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesFluctuationObejct.swift; sourceTree = "<group>"; };
+		410A2FF42A9C1A0C00C449D3 /* CurrencySymbolObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencySymbolObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				410A2FF22A9C11E600C449D3 /* RatesFluctuationObejct.swift */,
+				410A2FF42A9C1A0C00C449D3 /* CurrencySymbolObject.swift */,
 			);
 			name = objects;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 				410A2FF02A9C100700C449D3 /* BaseStore.swift in Sources */,
 				410A2FD92A9BEEF300C449D3 /* ContentView.swift in Sources */,
 				410A2FF32A9C11E600C449D3 /* RatesFluctuationObejct.swift in Sources */,
+				410A2FF52A9C1A0C00C449D3 /* CurrencySymbolObject.swift in Sources */,
 				410A2FE82A9BFC5E00C449D3 /* RatesApi.swift in Sources */,
 				410A2FD72A9BEEF300C449D3 /* ExchangeRatesApp.swift in Sources */,
 			);
