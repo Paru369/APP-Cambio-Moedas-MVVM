@@ -13,7 +13,7 @@
 Repository developed for didactic purposes, with the availability of Bootcamp activities nodes provided by Santander and  [Digital Innovation One](https://www.dio.me/).
 
 ## ✅ Features
-- 
+- API - https://exchangeratesapi.io/
 
 
 ## 📱 Technologies and knowledges 
