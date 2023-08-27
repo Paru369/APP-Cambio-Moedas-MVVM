@@ -11,7 +11,7 @@ enum HttpMethod: String {
     case get = "GET"
 }
 
-struct RatesApis {
+struct RatesApi {
     static let baseUrl = " https://api.apilayer.com/exchangerates_data"
     static let apiKey = "YJxBXFq86WfWLydsSJrZTvm2LEgE0RYL"
     static let fluctuation = " /fluctuation"

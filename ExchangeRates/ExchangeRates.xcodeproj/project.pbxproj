@@ -12,7 +12,8 @@
 		410A2FDB2A9BEEF500C449D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 410A2FDA2A9BEEF500C449D3 /* Assets.xcassets */; };
 		410A2FDE2A9BEEF500C449D3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 410A2FDD2A9BEEF500C449D3 /* Preview Assets.xcassets */; };
 		410A2FE82A9BFC5E00C449D3 /* RatesApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A2FE72A9BFC5E00C449D3 /* RatesApi.swift */; };
-		410A2FEB2A9BFE1900C449D3 /* Routers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A2FEA2A9BFE1900C449D3 /* Routers.swift */; };
+		410A2FEB2A9BFE1900C449D3 /* RatesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A2FEA2A9BFE1900C449D3 /* RatesRouter.swift */; };
+		410A2FED2A9BFF8600C449D3 /* CurrencyRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A2FEC2A9BFF8600C449D3 /* CurrencyRoute.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,7 +23,8 @@
 		410A2FDA2A9BEEF500C449D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		410A2FDD2A9BEEF500C449D3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		410A2FE72A9BFC5E00C449D3 /* RatesApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesApi.swift; sourceTree = "<group>"; };
-		410A2FEA2A9BFE1900C449D3 /* Routers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routers.swift; sourceTree = "<group>"; };
+		410A2FEA2A9BFE1900C449D3 /* RatesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesRouter.swift; sourceTree = "<group>"; };
+		410A2FEC2A9BFF8600C449D3 /* CurrencyRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRoute.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +102,8 @@
 		410A2FE92A9BFDFB00C449D3 /* Routers */ = {
 			isa = PBXGroup;
 			children = (
-				410A2FEA2A9BFE1900C449D3 /* Routers.swift */,
+				410A2FEA2A9BFE1900C449D3 /* RatesRouter.swift */,
+				410A2FEC2A9BFF8600C449D3 /* CurrencyRoute.swift */,
 			);
 			name = Routers;
 			sourceTree = "<group>";
@@ -175,7 +178,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				410A2FEB2A9BFE1900C449D3 /* Routers.swift in Sources */,
+				410A2FED2A9BFF8600C449D3 /* CurrencyRoute.swift in Sources */,
+				410A2FEB2A9BFE1900C449D3 /* RatesRouter.swift in Sources */,
 				410A2FD92A9BEEF300C449D3 /* ContentView.swift in Sources */,
 				410A2FE82A9BFC5E00C449D3 /* RatesApi.swift in Sources */,
 				410A2FD72A9BEEF300C449D3 /* ExchangeRatesApp.swift in Sources */,
