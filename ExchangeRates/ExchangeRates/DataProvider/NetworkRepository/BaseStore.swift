@@ -29,10 +29,10 @@ class BaseStore {
             self = try JSONDecoder().decode(RateResult.self, from: data)
         }
         
-        struct SymbolResult<Rates: Codable>: Codable {
+        struct SymbolResult: Codable {
             var base: String?
             var success: Bool = false
-            var symbol: CurrencySymbolObject??
+            var symbols: CurrencySymbolObject?
             
             init(data:Data?, response: URLResponse) throws {
                 guard let data = data, let response = response as? HTTPURLResponse
