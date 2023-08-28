@@ -20,6 +20,9 @@
 		410A2FF72A9C1A9400C449D3 /* RatesHistoricalObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A2FF62A9C1A9400C449D3 /* RatesHistoricalObject.swift */; };
 		410A2FF92A9C220B00C449D3 /* RatesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A2FF82A9C220B00C449D3 /* RatesStore.swift */; };
 		410A2FFB2A9C221D00C449D3 /* CurrencyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A2FFA2A9C221D00C449D3 /* CurrencyStore.swift */; };
+		410A2FFD2A9CF5B000C449D3 /* DataProviderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A2FFC2A9CF5B000C449D3 /* DataProviderManager.swift */; };
+		410A30012A9CF80900C449D3 /* RatesFluctuationDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A30002A9CF80900C449D3 /* RatesFluctuationDataProvider.swift */; };
+		410A30032A9CF81F00C449D3 /* RatesHistoricalDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A30022A9CF81F00C449D3 /* RatesHistoricalDataProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +40,9 @@
 		410A2FF62A9C1A9400C449D3 /* RatesHistoricalObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesHistoricalObject.swift; sourceTree = "<group>"; };
 		410A2FF82A9C220B00C449D3 /* RatesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesStore.swift; sourceTree = "<group>"; };
 		410A2FFA2A9C221D00C449D3 /* CurrencyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyStore.swift; sourceTree = "<group>"; };
+		410A2FFC2A9CF5B000C449D3 /* DataProviderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProviderManager.swift; sourceTree = "<group>"; };
+		410A30002A9CF80900C449D3 /* RatesFluctuationDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesFluctuationDataProvider.swift; sourceTree = "<group>"; };
+		410A30022A9CF81F00C449D3 /* RatesHistoricalDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesHistoricalDataProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +95,10 @@
 		410A2FE42A9BFBB300C449D3 /* DataProvider */ = {
 			isa = PBXGroup;
 			children = (
+				410A2FFF2A9CF7C600C449D3 /* CurrencySymbolsDataprovider */,
+				410A2FFE2A9CF7B600C449D3 /* RatesDataProvider */,
 				410A2FE52A9BFBDB00C449D3 /* NetworkRepository */,
+				410A2FFC2A9CF5B000C449D3 /* DataProviderManager.swift */,
 			);
 			path = DataProvider;
 			sourceTree = "<group>";
@@ -140,6 +149,22 @@
 				410A2FF62A9C1A9400C449D3 /* RatesHistoricalObject.swift */,
 			);
 			name = Objects;
+			sourceTree = "<group>";
+		};
+		410A2FFE2A9CF7B600C449D3 /* RatesDataProvider */ = {
+			isa = PBXGroup;
+			children = (
+				410A30002A9CF80900C449D3 /* RatesFluctuationDataProvider.swift */,
+				410A30022A9CF81F00C449D3 /* RatesHistoricalDataProvider.swift */,
+			);
+			path = RatesDataProvider;
+			sourceTree = "<group>";
+		};
+		410A2FFF2A9CF7C600C449D3 /* CurrencySymbolsDataprovider */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CurrencySymbolsDataprovider;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,10 +243,13 @@
 				410A2FF72A9C1A9400C449D3 /* RatesHistoricalObject.swift in Sources */,
 				410A2FD92A9BEEF300C449D3 /* ContentView.swift in Sources */,
 				410A2FF32A9C11E600C449D3 /* RatesFluctuationObejct.swift in Sources */,
+				410A30032A9CF81F00C449D3 /* RatesHistoricalDataProvider.swift in Sources */,
 				410A2FF52A9C1A0C00C449D3 /* CurrencySymbolObject.swift in Sources */,
 				410A2FF92A9C220B00C449D3 /* RatesStore.swift in Sources */,
+				410A2FFD2A9CF5B000C449D3 /* DataProviderManager.swift in Sources */,
 				410A2FE82A9BFC5E00C449D3 /* RatesApi.swift in Sources */,
 				410A2FD72A9BEEF300C449D3 /* ExchangeRatesApp.swift in Sources */,
+				410A30012A9CF80900C449D3 /* RatesFluctuationDataProvider.swift in Sources */,
 				410A2FFB2A9C221D00C449D3 /* CurrencyStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
