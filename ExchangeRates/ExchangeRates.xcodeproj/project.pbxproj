@@ -14,7 +14,7 @@
 		410A2FE82A9BFC5E00C449D3 /* RatesApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A2FE72A9BFC5E00C449D3 /* RatesApi.swift */; };
 		410A2FEB2A9BFE1900C449D3 /* RatesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A2FEA2A9BFE1900C449D3 /* RatesRouter.swift */; };
 		410A2FED2A9BFF8600C449D3 /* CurrencyRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A2FEC2A9BFF8600C449D3 /* CurrencyRoute.swift */; };
-		410A2FF02A9C100700C449D3 /* BaseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A2FEF2A9C100700C449D3 /* BaseStore.swift */; };
+		410A2FF02A9C100700C449D3 /* GenericStoreRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A2FEF2A9C100700C449D3 /* GenericStoreRequest.swift */; };
 		410A2FF32A9C11E600C449D3 /* RatesFluctuationObejct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A2FF22A9C11E600C449D3 /* RatesFluctuationObejct.swift */; };
 		410A2FF52A9C1A0C00C449D3 /* CurrencySymbolObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A2FF42A9C1A0C00C449D3 /* CurrencySymbolObject.swift */; };
 		410A2FF72A9C1A9400C449D3 /* RatesHistoricalObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A2FF62A9C1A9400C449D3 /* RatesHistoricalObject.swift */; };
@@ -35,7 +35,7 @@
 		410A2FE72A9BFC5E00C449D3 /* RatesApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesApi.swift; sourceTree = "<group>"; };
 		410A2FEA2A9BFE1900C449D3 /* RatesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesRouter.swift; sourceTree = "<group>"; };
 		410A2FEC2A9BFF8600C449D3 /* CurrencyRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRoute.swift; sourceTree = "<group>"; };
-		410A2FEF2A9C100700C449D3 /* BaseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseStore.swift; sourceTree = "<group>"; };
+		410A2FEF2A9C100700C449D3 /* GenericStoreRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericStoreRequest.swift; sourceTree = "<group>"; };
 		410A2FF22A9C11E600C449D3 /* RatesFluctuationObejct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesFluctuationObejct.swift; sourceTree = "<group>"; };
 		410A2FF42A9C1A0C00C449D3 /* CurrencySymbolObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencySymbolObject.swift; sourceTree = "<group>"; };
 		410A2FF62A9C1A9400C449D3 /* RatesHistoricalObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesHistoricalObject.swift; sourceTree = "<group>"; };
@@ -136,7 +136,7 @@
 		410A2FEE2A9C0FDA00C449D3 /* Stores */ = {
 			isa = PBXGroup;
 			children = (
-				410A2FEF2A9C100700C449D3 /* BaseStore.swift */,
+				410A2FEF2A9C100700C449D3 /* GenericStoreRequest.swift */,
 				410A2FF82A9C220B00C449D3 /* RatesStore.swift */,
 				410A2FFA2A9C221D00C449D3 /* CurrencyStore.swift */,
 			);
@@ -242,7 +242,7 @@
 			files = (
 				410A2FED2A9BFF8600C449D3 /* CurrencyRoute.swift in Sources */,
 				410A2FEB2A9BFE1900C449D3 /* RatesRouter.swift in Sources */,
-				410A2FF02A9C100700C449D3 /* BaseStore.swift in Sources */,
+				410A2FF02A9C100700C449D3 /* GenericStoreRequest.swift in Sources */,
 				410A2FF72A9C1A9400C449D3 /* RatesHistoricalObject.swift in Sources */,
 				410A2FD92A9BEEF300C449D3 /* ContentView.swift in Sources */,
 				410A2FF32A9C11E600C449D3 /* RatesFluctuationObejct.swift in Sources */,

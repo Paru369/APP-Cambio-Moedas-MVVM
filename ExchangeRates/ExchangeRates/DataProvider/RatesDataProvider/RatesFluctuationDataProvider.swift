@@ -21,7 +21,7 @@ class RatesFluctuationDataProvider: DataProviderManager<RatesFluctuationDataProv
         self.ratesStore = ratesStore
     }
     
-    func fetchFluation(by base: String, from symbols: [String], startDate: String, endDate: String) {
+    func fetchFluctuation(by base: String, from symbols: [String], startDate: String, endDate: String) {
         Task.init {
             do {
                 let model = try await ratesStore.fetchFluctuation(by: base, from: symbols, startDate: startDate, endDate: endDate)
