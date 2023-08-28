@@ -17,6 +17,7 @@
 		410A2FF02A9C100700C449D3 /* BaseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A2FEF2A9C100700C449D3 /* BaseStore.swift */; };
 		410A2FF32A9C11E600C449D3 /* RatesFluctuationObejct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A2FF22A9C11E600C449D3 /* RatesFluctuationObejct.swift */; };
 		410A2FF52A9C1A0C00C449D3 /* CurrencySymbolObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A2FF42A9C1A0C00C449D3 /* CurrencySymbolObject.swift */; };
+		410A2FF72A9C1A9400C449D3 /* RatesHistoricalObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A2FF62A9C1A9400C449D3 /* RatesHistoricalObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		410A2FEF2A9C100700C449D3 /* BaseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseStore.swift; sourceTree = "<group>"; };
 		410A2FF22A9C11E600C449D3 /* RatesFluctuationObejct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesFluctuationObejct.swift; sourceTree = "<group>"; };
 		410A2FF42A9C1A0C00C449D3 /* CurrencySymbolObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencySymbolObject.swift; sourceTree = "<group>"; };
+		410A2FF62A9C1A9400C449D3 /* RatesHistoricalObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesHistoricalObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +93,7 @@
 		410A2FE52A9BFBDB00C449D3 /* NetworkRepository */ = {
 			isa = PBXGroup;
 			children = (
-				410A2FF12A9C117600C449D3 /* objects */,
+				410A2FF12A9C117600C449D3 /* Objects */,
 				410A2FEE2A9C0FDA00C449D3 /* Stores */,
 				410A2FE92A9BFDFB00C449D3 /* Routers */,
 				410A2FE62A9BFC2200C449D3 /* Apis */,
@@ -124,13 +126,14 @@
 			name = Stores;
 			sourceTree = "<group>";
 		};
-		410A2FF12A9C117600C449D3 /* objects */ = {
+		410A2FF12A9C117600C449D3 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
 				410A2FF22A9C11E600C449D3 /* RatesFluctuationObejct.swift */,
 				410A2FF42A9C1A0C00C449D3 /* CurrencySymbolObject.swift */,
+				410A2FF62A9C1A9400C449D3 /* RatesHistoricalObject.swift */,
 			);
-			name = objects;
+			name = Objects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,6 +209,7 @@
 				410A2FED2A9BFF8600C449D3 /* CurrencyRoute.swift in Sources */,
 				410A2FEB2A9BFE1900C449D3 /* RatesRouter.swift in Sources */,
 				410A2FF02A9C100700C449D3 /* BaseStore.swift in Sources */,
+				410A2FF72A9C1A9400C449D3 /* RatesHistoricalObject.swift in Sources */,
 				410A2FD92A9BEEF300C449D3 /* ContentView.swift in Sources */,
 				410A2FF32A9C11E600C449D3 /* RatesFluctuationObejct.swift in Sources */,
 				410A2FF52A9C1A0C00C449D3 /* CurrencySymbolObject.swift in Sources */,
