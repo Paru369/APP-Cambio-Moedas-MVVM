@@ -13,7 +13,7 @@ protocol RatesFluctuationDataProviderDelegate: DataProviderManagerDelegate {
 }
 
 
-class RatesFluctuationDataProvider: DataProviderManager<DataProviderManagerDelegate, RatesFluctuationObject> {
+class RatesFluctuationDataProvider: DataProviderManager<RatesFluctuationDataProviderDelegate, RatesFluctuationObject> {
     
     private let ratesStore: RatesStore
     

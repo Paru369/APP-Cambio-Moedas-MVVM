@@ -13,7 +13,7 @@ protocol RatesHistoricalDataProviderDelegate: DataProviderManagerDelegate {
 }
 
 
-class RatesHistoricalDataProvider: DataProviderManager<DataProviderManagerDelegate, RatesHistoricalObject> {
+class RatesHistoricalDataProvider: DataProviderManager<RatesHistoricalDataProviderDelegate, RatesHistoricalObject> {
     
     private let ratesStore: RatesStore
     
