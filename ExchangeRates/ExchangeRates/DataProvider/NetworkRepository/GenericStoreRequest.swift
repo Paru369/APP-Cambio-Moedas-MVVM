@@ -1,5 +1,5 @@
 //
-//  BaseStore.swift
+//  GenericStoreRequest.swift
 //  ExchangeRates
 //
 //  Created by Paulo Pinheiro on 8/27/23.
@@ -9,7 +9,7 @@ import Foundation
 
 class BaseStore {
     
-    let error = NSError(domain: "", code: 901, userInfo: [NSLocalizedDescriptionKey: " Error getting information"]) as Error
+    let error = NSError(domain: "", code: 901, userInfo: [NSLocalizedDescriptionKey: "Error getting information"]) as Error
     
     struct RateResult<Rates: Codable>: Codable {
         var base: String?
@@ -19,7 +19,7 @@ class BaseStore {
         init(data:Data?, response: URLResponse) throws {
             guard let data = data, let response = response as? HTTPURLResponse
             else {
-                throw NSError(domain: "", code: 901, userInfo: [NSLocalizedDescriptionKey: " Error getting information"]) as Error
+                throw NSError(domain: "", code: 901, userInfo: [NSLocalizedDescriptionKey: "Error getting information"]) as Error
             }
             if let url = response.url?.absoluteString,
                let json = String(data: data, encoding: .utf8) {
@@ -38,7 +38,7 @@ class BaseStore {
             init(data:Data?, response: URLResponse) throws {
                 guard let data = data, let response = response as? HTTPURLResponse
                 else {
-                    throw NSError(domain: "", code: 901, userInfo: [NSLocalizedDescriptionKey: " Error getting information"]) as Error
+                    throw NSError(domain: "", code: 901, userInfo: [NSLocalizedDescriptionKey: "Error getting information"]) as Error
                 }
                 if let url = response.url?.absoluteString,
                    let json = String(data: data, encoding: .utf8) {
@@ -50,4 +50,3 @@ class BaseStore {
         }
     }
     
-
