@@ -32,7 +32,7 @@ struct ContentView: View {
     
     let rateHistoricalDataProvider = RatesHistoricalDataProvider()
     rateHistoricalDataProvider.delegate = self
-    rateHistoricalDataProvider.fetchTimeseries(by:"BRL",from:"USD",
+    rateHistoricalDataProvider.fetchTimeseries(by:"BRL",from:["USD", "EUR", "BRL"],
     startDate: "2023-08-26", endDate: "2023-08-27")
     }
 }
