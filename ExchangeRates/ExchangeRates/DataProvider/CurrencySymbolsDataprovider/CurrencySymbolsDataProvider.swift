@@ -28,6 +28,7 @@ class CurrencySymbolsDataProvider: DataProviderManager<CurrencySymbolsDataProvid
                 delegate?.success(model: model)
             } catch {
                 delegate?.errorData(delegate, error: error)
+                print("deu Ruim")
             }
         }
     }
