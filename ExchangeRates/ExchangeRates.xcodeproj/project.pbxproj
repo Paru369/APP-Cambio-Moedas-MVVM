@@ -23,6 +23,7 @@
 		410A2FFD2A9CF5B000C449D3 /* DataProviderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A2FFC2A9CF5B000C449D3 /* DataProviderManager.swift */; };
 		410A30012A9CF80900C449D3 /* RatesFluctuationDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A30002A9CF80900C449D3 /* RatesFluctuationDataProvider.swift */; };
 		410A30032A9CF81F00C449D3 /* RatesHistoricalDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A30022A9CF81F00C449D3 /* RatesHistoricalDataProvider.swift */; };
+		410A30052A9CF86F00C449D3 /* CurrencySymbolsDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A30042A9CF86F00C449D3 /* CurrencySymbolsDataProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		410A2FFC2A9CF5B000C449D3 /* DataProviderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProviderManager.swift; sourceTree = "<group>"; };
 		410A30002A9CF80900C449D3 /* RatesFluctuationDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesFluctuationDataProvider.swift; sourceTree = "<group>"; };
 		410A30022A9CF81F00C449D3 /* RatesHistoricalDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesHistoricalDataProvider.swift; sourceTree = "<group>"; };
+		410A30042A9CF86F00C449D3 /* CurrencySymbolsDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencySymbolsDataProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 		410A2FFF2A9CF7C600C449D3 /* CurrencySymbolsDataprovider */ = {
 			isa = PBXGroup;
 			children = (
+				410A30042A9CF86F00C449D3 /* CurrencySymbolsDataProvider.swift */,
 			);
 			path = CurrencySymbolsDataprovider;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				410A2FF52A9C1A0C00C449D3 /* CurrencySymbolObject.swift in Sources */,
 				410A2FF92A9C220B00C449D3 /* RatesStore.swift in Sources */,
 				410A2FFD2A9CF5B000C449D3 /* DataProviderManager.swift in Sources */,
+				410A30052A9CF86F00C449D3 /* CurrencySymbolsDataProvider.swift in Sources */,
 				410A2FE82A9BFC5E00C449D3 /* RatesApi.swift in Sources */,
 				410A2FD72A9BEEF300C449D3 /* ExchangeRatesApp.swift in Sources */,
 				410A30012A9CF80900C449D3 /* RatesFluctuationDataProvider.swift in Sources */,
