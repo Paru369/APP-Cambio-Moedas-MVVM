@@ -28,6 +28,7 @@ class BaseStore {
             }
             self = try JSONDecoder().decode(RateResult.self, from: data)
         }
+    }
         
         struct SymbolResult: Codable {
             var base: String?
@@ -49,4 +50,4 @@ class BaseStore {
         }
     }
     
-}
+
