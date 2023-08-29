@@ -37,7 +37,7 @@ extension Double {
             if self.sign == . minus{
                 return "\u{2193} \(value)"
             } else {
-                return "\u{2193} \(value)"
+                return "\u{2191} \(value)"
             }
         }
         
