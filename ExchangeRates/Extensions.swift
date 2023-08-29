@@ -11,7 +11,7 @@ extension Double {
     
     func formatter(decimalPlaces: Int, with changeSymbol: Bool = false) -> String {
         let numberFormatter = NumberFormatter()
-        numberFormartter.numberStyle = .decimal
+        numberFormatter.numberStyle = .decimal
         numberFormatter.roundingMode = .halfUp
         numberFormatter.minimumFractionDigits = (decimalPlaces > 2) ? decimalPlaces : 2
         numberFormatter.maximumFractionDigits = (decimalPlaces > 2) ? decimalPlaces : 2
@@ -21,7 +21,9 @@ extension Double {
         
         if changeSymbol {
             
-            if self.sign == .plus {
+            if self.sign == .minus {
+                return  " \(value)"
+            } else {
                 return  " +\(value)"
             }
         }
@@ -41,8 +43,9 @@ extension Double {
             }
         }
         
+        return "\(value)"
     }
     
-    }
+}
     
 

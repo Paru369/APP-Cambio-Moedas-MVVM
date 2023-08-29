@@ -122,11 +122,11 @@ struct RatesFluctuationView: View {
                 HStack {
                     Text("\(fluctuation.symbol) / BRL")
                         .font(.system(size: 14, weight: .medium))
-                    Text("\(fluctuation.endRate)")
+                    Text("\(fluctuation.endRate.formatter(decimalPlaces: 2))")
                         .font(.system(size: 14, weight: .bold))
-                    Text("\(fluctuation.change)")
+                    Text("\(fluctuation.change.formatter(decimalPlaces: 4, with: true))")
                         .font(.system(size: 14, weight: .bold))
-                    Text("\(fluctuation.changePct)")
+                    Text("\(fluctuation.changePct.formatter(decimalPlaces: 2))")
                         .font(.system(size: 14, weight: .bold))
                     
                 }
