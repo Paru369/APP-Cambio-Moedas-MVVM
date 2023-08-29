@@ -34,6 +34,8 @@ struct RatesFluctuationView: View {
             VStack {
                 
                 baseCurrencyPeriodFilterView
+                
+                ratesFluctuationListView
             }
             
             .searchable(text: $searchText)
@@ -114,7 +116,27 @@ struct RatesFluctuationView: View {
         .padding(.bottom, 16)
      }
     
-    private var ratesFluctuationListView
+    private var ratesFluctuationListView: some View {
+        List(viewModel.fluctuations) { fluctuation in
+            VStack {
+                HStack {
+                    Text("\(fluctuation.symbol) / BRL")
+                        .font(.system(size: 14, weight: .medium))
+                    Text("\(fluctuation.symbol) / BRL")
+                        .font(.system(size: 14, weight: .medium))
+                    Text("\(fluctuation.symbol) / BRL")
+                        .font(.system(size: 14, weight: .medium))
+                    Text("\(fluctuation.symbol) / BRL")
+                        .font(.system(size: 14, weight: .medium))
+                    
+                }
+                
+            }
+            .listRowSeparator(.hidden)
+            .listRowBackground(Color.white)
+        }
+        .listStyle(.plain)
+    }
     
     
 }
