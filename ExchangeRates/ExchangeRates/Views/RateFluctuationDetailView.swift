@@ -108,7 +108,11 @@ struct RateFluctuationDetailView: View {
         VStack {
             periodFilterView
             lineChartView
+              
+            
         }
+        .padding(.top, 8)
+        .padding(.bottom, 8)
     }
     
     private var periodFilterView: some View {
@@ -163,6 +167,19 @@ struct RateFluctuationDetailView: View {
                 x: .value("Period", item.period),
                 y: .value("Rates", item.endRate)
                 )
+                .interpolationMethod(.catmullRom)
+                
+                if !viewModel.hasRates {
+                    RuleMark(
+                        y: .value("Conversão deu ruim", 0)
+                    )
+                    .annotation(position: .overlay, alignment: .center){
+                        Text("Sem valores nesse periodo")
+                            .font(.footnote)
+                            .padding()
+                            .background(Color(UIColor.systemBackground))
+                    }
+                }
             }
             .chartXAxis {
                 AxisMarks(preset: .aligned) {date in
@@ -179,6 +196,7 @@ struct RateFluctuationDetailView: View {
             .chartYScale(domain: viewModel.yAxisMin...viewModel.yAxisMax)
             .frame(height: 260)
             .padding(.trailing, 22)
+            .padding(.leading, 8)
     }
 }
 
