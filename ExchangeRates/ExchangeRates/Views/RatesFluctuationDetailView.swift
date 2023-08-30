@@ -28,6 +28,28 @@ class RateFluctuationViewModel: ObservableObject {
         ChartComparation(symbol: "USD", period: "2022-11-18".toDate(), endRate: 0.187873)
     ]
     
+    var hasRates: Bool {
+        return chartComparations.filter { $0.endRate > 0 }.count > 0
+    }
+    
+    var yAxisMin: Double {
+        let min = chartComparations.map { $0.endRate }.min() ?? 0.0
+        return (min - (min * 0.02))
+    }
+    
+    var yAxisMax: Double {
+        let max =  chartComparations.map { $0.endRate }.max() ?? 0.0
+        return (max + (max * 0.02))
+    }
+    
+    
+    func XAxisLabelFormatstyle(for date: Date) -> String {
+        switch timeRange {
+        case .today: return date.formatter(to: "HH:mm")
+        case .thiskeek, thisMontht return date.formatter(to: "dd, MMM")
+        case .thisSemester: return date.formatter (to: "MMM")
+        case .thisYeart return date.formatter(to: "MMM, YYYY")
+        }
     
 }
 struct RatesFluctuationDetailView: View {

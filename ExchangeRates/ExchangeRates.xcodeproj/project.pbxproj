@@ -83,6 +83,7 @@
 		410A2FD52A9BEEF300C449D3 /* ExchangeRates */ = {
 			isa = PBXGroup;
 			children = (
+				410A300D2A9F67CF00C449D3 /* New Group */,
 				410A30092A9EAB6900C449D3 /* Extensions.swift */,
 				410A30062A9D840000C449D3 /* Views */,
 				410A2FE42A9BFBB300C449D3 /* DataProvider */,
@@ -185,6 +186,13 @@
 				410A300B2A9F596600C449D3 /* RatesFluctuationDetailView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		410A300D2A9F67CF00C449D3 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

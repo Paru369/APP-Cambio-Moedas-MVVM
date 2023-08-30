@@ -56,5 +56,13 @@ extension Double {
         
 }
 
+extension String {
+    func toDate(dateFormat: String = "yyyy-MM-DD") -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = dateFormat
+        return dateFormatter.date(from: self) ?? Date()
+    }
+}
+
 
 
