@@ -64,5 +64,11 @@ extension String {
     }
 }
 
+extension Date {
+    init(from component: Calendar.Component, value: Int) {
+        self = Calendar.current.date(byAdding: component, value: -value, to: Date()) ?? Date()
+    }
+}
+
 
 
