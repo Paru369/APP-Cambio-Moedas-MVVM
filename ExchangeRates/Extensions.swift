@@ -36,14 +36,14 @@ extension Double {
         let value = formatter(decimalPlaces: 2)
         
         if changeSymbol {
-            if self.sign == . minus{
-                return "\u{2193} \(value)"
+            if self.sign == .minus{
+                return "\u{2193} \(value)%"
             } else {
-                return "\u{2191} \(value)"
+                return "\u{2191} \(value)%"
             }
         }
         
-        return "\(value)"
+        return "\(value)%"
     }
     
 }

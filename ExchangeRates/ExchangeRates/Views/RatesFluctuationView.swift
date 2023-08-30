@@ -126,10 +126,11 @@ struct RatesFluctuationView: View {
                         .font(.system(size: 14, weight: .bold))
                     Text("\(fluctuation.change.formatter(decimalPlaces: 4, with: true))")
                         .font(.system(size: 14, weight: .bold))
-                    Text("\(fluctuation.changePct.formatter(decimalPlaces: 2))")
+                    Text("\(fluctuation.changePct.toPercentage())")
                         .font(.system(size: 14, weight: .bold))
-                    
                 }
+                Divider()
+                    .padding(.leading, -20).padding(.trailing, -40)
                 
             }
             .listRowSeparator(.hidden)
@@ -137,6 +138,7 @@ struct RatesFluctuationView: View {
         }
         .listStyle(.plain)
     }
+    
     
     
 }
