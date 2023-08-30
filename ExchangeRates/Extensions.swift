@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import SwiftUI
 extension Double {
     
     func formatter(decimalPlaces: Int, with changeSymbol: Bool = false) -> String {
@@ -46,6 +46,15 @@ extension Double {
         return "\(value)%"
     }
     
+    func color() -> Color {
+        if self.sign == .minus {
+            return .red
+        } else {
+            return .green
+        }
+    }
+        
 }
-    
+
+
 

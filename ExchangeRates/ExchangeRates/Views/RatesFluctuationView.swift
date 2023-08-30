@@ -119,13 +119,15 @@ struct RatesFluctuationView: View {
     private var ratesFluctuationListView: some View {
         List(viewModel.fluctuations) { fluctuation in
             VStack {
-                HStack {
+                HStack(alignment: .center, spacing: 8) {
                     Text("\(fluctuation.symbol) / BRL")
                         .font(.system(size: 14, weight: .medium))
                     Text("\(fluctuation.endRate.formatter(decimalPlaces: 2))")
                         .font(.system(size: 14, weight: .bold))
+                        .frame(maxWidth: .infinity, alignment: .trailing)
                     Text("\(fluctuation.change.formatter(decimalPlaces: 4, with: true))")
                         .font(.system(size: 14, weight: .bold))
+                        .foregroundColor(fluctuation.change.color())
                     Text("\(fluctuation.changePct.toPercentage())")
                         .font(.system(size: 14, weight: .bold))
                 }
