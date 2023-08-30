@@ -16,7 +16,7 @@ struct Fluctuation: Identifiable { //  Equatable
     var endRate: Double
 }
 
-class FluctuationVieWModel: ObservableObject {
+class RatesFluctuationVieWModel: ObservableObject {
     @Published var fluctuations: [Fluctuation] = [
         Fluctuation(symbol: "USD", change: 0.0008, changePct: 0.4175, endRate:8.18857),
         Fluctuation(symbol: "EUR", change: 0.8083, changePct: 0.1651, endRate: 0.181353),
@@ -26,7 +26,7 @@ class FluctuationVieWModel: ObservableObject {
 
 struct RatesFluctuationView: View {
     
-    @StateObject var viewModel = FluctuationVieWModel()
+    @StateObject var viewModel = RatesFluctuationVieWModel()
     @State private var searchText  = ""
     
     var searchResult: [Fluctuation] {
