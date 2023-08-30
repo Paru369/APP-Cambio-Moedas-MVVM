@@ -14,6 +14,7 @@ Repository developed for didactic purposes, with the availability of Bootcamp ac
 
 ## ✅ Features
 - API - https://exchangeratesapi.io/
+- Graphics by Charts
 
 
 ## 📱 Technologies and knowledges 
