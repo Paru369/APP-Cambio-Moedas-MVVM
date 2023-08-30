@@ -14,6 +14,8 @@ struct ChartComparation: Identifiable, Equatable {
     var endRate: Double
     
 }
+
+
 class RateFluctuationViewModel: ObservableObject {
     @Published var fluctuations: [Fluctuation] = [
         Fluctuation(symbol: "JPY", change: 0.8008, changePct: 0.0085, endRate: 6.087242),
@@ -42,14 +44,27 @@ class RateFluctuationViewModel: ObservableObject {
         return (max + (max * 0.02))
     }
     
+    @Published var timeRange = TimeRangeEnum.today
     
     func XAxisLabelFormatstyle(for date: Date) -> String {
         switch timeRange {
         case .today: return date.formatter(to: "HH:mm")
-        case .thiskeek, thisMontht return date.formatter(to: "dd, MMM")
+        case .thisWeek, .thisMonth: return date.formatter(to: "dd, MMM")
         case .thisSemester: return date.formatter (to: "MMM")
-        case .thisYeart return date.formatter(to: "MMM, YYYY")
+        case .thisYear: return date.formatter(to: "MMM, YYYY")
         }
+    }
+    
+//    func addFluctuation(fluctuation: Fluctuation) {
+//        fluctuations.insert(fluctuation, at: 0)
+//    }
+    
+    
+//    func renoveFluctuations(fluctuation: Fluctuation) {
+//        if let index = fluctuations.firstIndex(of: fluctuation) {
+//            fluctuations.remove(at: index)
+//        }
+//    }
     
 }
 struct RatesFluctuationDetailView: View {
@@ -60,6 +75,6 @@ struct RatesFluctuationDetailView: View {
 
 struct REMasatesFluctuationDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ratesFluctuationDetailView()
+        RatesFluctuationDetailView()
     }
 }
