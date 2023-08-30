@@ -56,5 +56,26 @@ extension Double {
         
 }
 
+extension String {
+    func toDate(dateFormat: String = "yyyy-MM-DD") -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = dateFormat
+        return dateFormatter.date(from: self) ?? Date()
+    }
+}
+
+extension Date {
+    init(from component: Calendar.Component, value: Int) {
+        self = Calendar.current.date(byAdding: component, value: -value, to: Date()) ?? Date()
+    }
+    
+    func formatter(to dateFormat: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "pt_BR_POSIX")
+        dateFormatter.dateFormat = dateFormat
+        return dateFormatter.string(from: self) ?? "xxx"
+    }
+}
+
 
 

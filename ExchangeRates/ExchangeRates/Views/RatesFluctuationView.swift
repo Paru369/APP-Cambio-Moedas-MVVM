@@ -8,7 +8,7 @@
 import SwiftUI
 
 // ---------------------- MOCK -------------------
-struct Fluctuation: Identifiable {
+struct Fluctuation: Identifiable { //  Equatable
     let id = UUID()
     var symbol: String
     var change: Double
