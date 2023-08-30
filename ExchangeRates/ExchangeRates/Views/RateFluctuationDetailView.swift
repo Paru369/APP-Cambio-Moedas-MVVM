@@ -25,10 +25,10 @@ class RateFluctuationViewModel: ObservableObject {
     ]
     
     @Published var chartComparations: [ChartComparation] = [
-        ChartComparation(symbol: "USD", period: "2822-11-13".toDate(), endRate: 0.18857),
-        ChartComparation(symbol: "USD", period: "2022-11-12".toDate(), endRate: 0.18857),
-        ChartComparation(symbol: "USD", period: "2022-11-11".toDate(), endRate: 0.187786),
-        ChartComparation(symbol: "USD", period: "2022-11-18".toDate(), endRate: 0.187873)
+        ChartComparation(symbol: "USD", period: "2822-11-10".toDate(), endRate: 0.19857),
+        ChartComparation(symbol: "USD", period: "2022-11-15".toDate(), endRate: 0.18857),
+        ChartComparation(symbol: "USD", period: "2022-11-18".toDate(), endRate: 0.177786),
+        ChartComparation(symbol: "USD", period: "2022-11-30".toDate(), endRate: 0.157873)
     ]
     
     var hasRates: Bool {
@@ -157,16 +157,32 @@ struct RateFluctuationDetailView: View {
     }
     
     private var lineChartView: some View {
+        
             Chart(viewModel.chartComparations) { item in
                 LineMark(
                 x: .value("Period", item.period),
-                 y: .value("Rates", item.period)
+                y: .value("Rates", item.endRate)
                 )
             }
+            .chartXAxis {
+                AxisMarks(preset: .aligned) {date in
+                    AxisGridLine()
+                    AxisValueLabel(viewModel.XAxisLabelFormatstyle(for: date.as(Date.self) ?? Date()))
+                }
+            }
+            .chartYAxis {
+                AxisMarks(position: .leading) { rate in
+                    AxisGridLine()
+                    AxisValueLabel(rate.as(Double.self)?.formatter(decimalPlaces: 3) ?? 0.0.formatter(decimalPlaces: 3))
+                }
+            }
+            .chartYScale(domain: viewModel.yAxisMin...viewModel.yAxisMax)
+            .frame(height: 260)
+            .padding(.trailing, 22)
     }
 }
 
-struct REMasatesFluctuationDetailView_Previews: PreviewProvider {
+struct RatesFluctuationDetailView_Previews: PreviewProvider {
     static var previews: some View {
         RateFluctuationDetailView(baseCurrency: "BRL", rateFluctuation:  Fluctuation(symbol: "EUR", change: 8.0003, changePct: 0.1651, endRate: 0.181353))
     }
