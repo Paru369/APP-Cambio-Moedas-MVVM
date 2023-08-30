@@ -29,6 +29,19 @@ struct RatesFluctuationView: View {
     @StateObject var viewModel = FluctuationVieWModel()
     @State private var searchText  = ""
     
+    var searchResult: [Fluctuation] {
+        if searchText.isEmpty{
+            return viewModel.fluctuations
+        } else {
+            return viewModel.fluctuations.filter {
+                $0.symbol.contains(searchText.uppercased())  ||
+                $0.change.formatter(decimalPlaces: 4).contains(searchText.uppercased()) ||
+                $0.changePct.toPercentage().contains(searchText.uppercased()) ||
+                $0.endRate.formatter(decimalPlaces: 2).contains(searchText.uppercased())
+            }
+        }
+    }
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -117,7 +130,7 @@ struct RatesFluctuationView: View {
      }
     
     private var ratesFluctuationListView: some View {
-        List(viewModel.fluctuations) { fluctuation in
+        List(searchResult) { fluctuation in
             VStack {
                 HStack(alignment: .center, spacing: 8) {
                     Text("\(fluctuation.symbol) / BRL")
