@@ -28,8 +28,8 @@
 		410A300A2A9EAB6900C449D3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A30092A9EAB6900C449D3 /* Extensions.swift */; };
 		410A300C2A9F596600C449D3 /* RateFluctuationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A300B2A9F596600C449D3 /* RateFluctuationDetailView.swift */; };
 		410A300F2A9F682600C449D3 /* TimeRangeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A300E2A9F682600C449D3 /* TimeRangeEnum.swift */; };
-		410A30112AA1510000C449D3 /* BaseCurrencyFilderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A30102AA150FF00C449D3 /* BaseCurrencyFilderView.swift */; };
-		410A30132AA1512900C449D3 /* CurrencySelectionFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A30122AA1512900C449D3 /* CurrencySelectionFilterView.swift */; };
+		410A30172AA1525200C449D3 /* CurrencySelectionFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A30162AA1525200C449D3 /* CurrencySelectionFilterView.swift */; };
+		410A30192AA1527100C449D3 /* BaseCurrencyFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A30182AA1527100C449D3 /* BaseCurrencyFilterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,8 +55,8 @@
 		410A30092A9EAB6900C449D3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		410A300B2A9F596600C449D3 /* RateFluctuationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateFluctuationDetailView.swift; sourceTree = "<group>"; };
 		410A300E2A9F682600C449D3 /* TimeRangeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeRangeEnum.swift; sourceTree = "<group>"; };
-		410A30102AA150FF00C449D3 /* BaseCurrencyFilderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCurrencyFilderView.swift; sourceTree = "<group>"; };
-		410A30122AA1512900C449D3 /* CurrencySelectionFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencySelectionFilterView.swift; sourceTree = "<group>"; };
+		410A30162AA1525200C449D3 /* CurrencySelectionFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencySelectionFilterView.swift; sourceTree = "<group>"; };
+		410A30182AA1527100C449D3 /* BaseCurrencyFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCurrencyFilterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,8 +190,8 @@
 			children = (
 				410A30072A9D842700C449D3 /* RatesFluctuationView.swift */,
 				410A300B2A9F596600C449D3 /* RateFluctuationDetailView.swift */,
-				410A30102AA150FF00C449D3 /* BaseCurrencyFilderView.swift */,
-				410A30122AA1512900C449D3 /* CurrencySelectionFilterView.swift */,
+				410A30162AA1525200C449D3 /* CurrencySelectionFilterView.swift */,
+				410A30182AA1527100C449D3 /* BaseCurrencyFilterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -288,13 +288,13 @@
 				410A30052A9CF86F00C449D3 /* CurrencySymbolsDataProvider.swift in Sources */,
 				410A2FE82A9BFC5E00C449D3 /* RatesApi.swift in Sources */,
 				410A2FD72A9BEEF300C449D3 /* ExchangeRatesApp.swift in Sources */,
-				410A30112AA1510000C449D3 /* BaseCurrencyFilderView.swift in Sources */,
 				410A30082A9D842700C449D3 /* RatesFluctuationView.swift in Sources */,
 				410A300A2A9EAB6900C449D3 /* Extensions.swift in Sources */,
 				410A300F2A9F682600C449D3 /* TimeRangeEnum.swift in Sources */,
 				410A30012A9CF80900C449D3 /* RatesFluctuationDataProvider.swift in Sources */,
+				410A30172AA1525200C449D3 /* CurrencySelectionFilterView.swift in Sources */,
 				410A2FFB2A9C221D00C449D3 /* CurrencyStore.swift in Sources */,
-				410A30132AA1512900C449D3 /* CurrencySelectionFilterView.swift in Sources */,
+				410A30192AA1527100C449D3 /* BaseCurrencyFilterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
