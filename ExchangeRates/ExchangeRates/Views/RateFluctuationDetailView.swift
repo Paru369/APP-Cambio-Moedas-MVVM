@@ -19,9 +19,9 @@ struct ChartComparation: Identifiable, Equatable {
 
 class RateFluctuationViewModel: ObservableObject {
     @Published var fluctuations: [Fluctuation] = [
-        Fluctuation(symbol: "JPY", change: 0.8008, changePct: 0.0085, endRate: 6.087242),
-        Fluctuation(symbol: "EUR", change: 8.0003, changePct: 0.1651, endRate: 0.181353),
-        Fluctuation(symbol: "GBP", change: -0.0001, changePct: -6.8403, endRate: 0.158915)
+        Fluctuation(symbol: "JPY", change: 0.0008, changePct: 0.0085, endRate: 0.087242),
+        Fluctuation(symbol: "EUR", change: 0.0003, changePct: 0.1651, endRate: 0.181353),
+        Fluctuation(symbol: "GBP", change: -0.0001, changePct: -0.8403, endRate: 0.158915)
     ]
     
     @Published var chartComparations: [ChartComparation] = [
@@ -79,6 +79,7 @@ struct RateFluctuationDetailView: View {
         ScrollView(showsIndicators: false) {
             valuesView
             graphicChartView
+            comparationView
         }
         .navigationTitle("BRL a EUR")
     }
@@ -108,7 +109,7 @@ struct RateFluctuationDetailView: View {
         VStack {
             periodFilterView
             lineChartView
-              
+            
             
         }
         .padding(.top, 8)
@@ -162,42 +163,105 @@ struct RateFluctuationDetailView: View {
     
     private var lineChartView: some View {
         
-            Chart(viewModel.chartComparations) { item in
-                LineMark(
+        Chart(viewModel.chartComparations) { item in
+            LineMark(
                 x: .value("Period", item.period),
                 y: .value("Rates", item.endRate)
+            )
+            .interpolationMethod(.catmullRom)
+            
+            if !viewModel.hasRates {
+                RuleMark(
+                    y: .value("Conversão deu ruim", 0)
                 )
-                .interpolationMethod(.catmullRom)
-                
-                if !viewModel.hasRates {
-                    RuleMark(
-                        y: .value("Conversão deu ruim", 0)
-                    )
-                    .annotation(position: .overlay, alignment: .center){
-                        Text("Sem valores nesse periodo")
-                            .font(.footnote)
-                            .padding()
-                            .background(Color(UIColor.systemBackground))
+                .annotation(position: .overlay, alignment: .center){
+                    Text("Sem valores nesse periodo")
+                        .font(.footnote)
+                        .padding()
+                        .background(Color(UIColor.systemBackground))
+                }
+            }
+        }
+        .chartXAxis {
+            AxisMarks(preset: .aligned) {date in
+                AxisGridLine()
+                AxisValueLabel(viewModel.XAxisLabelFormatstyle(for: date.as(Date.self) ?? Date()))
+            }
+        }
+        .chartYAxis {
+            AxisMarks(position: .leading) { rate in
+                AxisGridLine()
+                AxisValueLabel(rate.as(Double.self)?.formatter(decimalPlaces: 3) ?? 0.0.formatter(decimalPlaces: 3))
+            }
+        }
+        .chartYScale(domain: viewModel.yAxisMin...viewModel.yAxisMax)
+        .frame(height: 260)
+        .padding(.trailing, 8)
+      
+    }
+    
+    private var comparationView: some View{
+        VStack(spacing: 8){
+            buttonComparationView
+            scrollComparationView
+        }
+        .padding(.top, 8)
+        .padding(.bottom, 8)
+    }
+    
+    
+    private var scrollComparationView: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            LazyHGrid(rows: [GridItem(.flexible())], alignment: .center) {
+                ForEach(viewModel.fluctuations) { fluctuation in
+                    
+                    Button {
+                        print("Comparations")
+                    } label: {
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("\(fluctuation.symbol) / \(baseCurrency)")
+                                .font(.system(size: 14))
+                                .foregroundColor(.black)
+                            Text(fluctuation.endRate.formatter(decimalPlaces: 4))
+                                .font(.system(size: 14, weight: .semibold))
+                                .foregroundColor(.black)
+                            
+                            HStack(alignment: .bottom, spacing: 60) {
+                                Text(fluctuation.symbol)
+                                    .font(.system(size: 12, weight: .semibold))
+                                    .foregroundColor(.gray)
+                                
+                                Text(fluctuation.changePct.toPercentage())
+                                    .font(.system(size: 14, weight: .semibold))
+                                    .foregroundColor(fluctuation.changePct.color())
+                                    .frame(maxWidth: .infinity,  alignment: .trailing)
+                            }
+                        }
+                        .padding(.init(top:8, leading: 16, bottom: 8, trailing: 16))
+                        .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(.gray, lineWidth: 1)
+                        )
+                        
                     }
                 }
             }
-            .chartXAxis {
-                AxisMarks(preset: .aligned) {date in
-                    AxisGridLine()
-                    AxisValueLabel(viewModel.XAxisLabelFormatstyle(for: date.as(Date.self) ?? Date()))
-                }
-            }
-            .chartYAxis {
-                AxisMarks(position: .leading) { rate in
-                    AxisGridLine()
-                    AxisValueLabel(rate.as(Double.self)?.formatter(decimalPlaces: 3) ?? 0.0.formatter(decimalPlaces: 3))
-                }
-            }
-            .chartYScale(domain: viewModel.yAxisMin...viewModel.yAxisMax)
-            .frame(height: 260)
-            .padding(.trailing, 22)
             .padding(.leading, 8)
+            .padding(.trailing, 8)
+        }
     }
+    
+    
+    private var buttonComparationView: some View {
+        Button {
+            print("Comparar com")
+        } label: {
+            Image(systemName: "magnifyingglass")
+            Text("Compare com")
+                .font(.system(size:16))
+        }
+    }
+    
 }
 
 struct RatesFluctuationDetailView_Previews: PreviewProvider {
