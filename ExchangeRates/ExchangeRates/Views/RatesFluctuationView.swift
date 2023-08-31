@@ -147,18 +147,13 @@ struct RatesFluctuationView: View {
                     }
                     Divider()
                         .padding(.leading, -20).padding(.trailing, -40)
-                }
-                
+                    }
                 }
                 .listRowSeparator(.hidden)
                 .listRowBackground(Color.white)
             }
             .listStyle(.plain)
         }
-    
-    
-    
-    
 }
 
 struct RatesFluctuationView_Previews: PreviewProvider {
