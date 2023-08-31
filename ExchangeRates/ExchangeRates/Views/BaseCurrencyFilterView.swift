@@ -26,6 +26,8 @@ class BaseCurrencyFilterViewModel: ObservableObject {
 
 struct BaseCurrencyFilterView: View {
     
+    @Environment(\.dismiss) var dismiss
+    
     @StateObject var viewModel = BaseCurrencyFilterViewModel()
     
     @State private var selection: String?
@@ -65,6 +67,7 @@ struct BaseCurrencyFilterView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             Button {
+                dismiss()
                 print("Select currency button")
             } label: {
                 Text("OK")
