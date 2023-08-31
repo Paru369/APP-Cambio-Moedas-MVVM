@@ -20,14 +20,61 @@ class BaseCurrencyFilterViewModel: ObservableObject {
     Symbol(symbol: "GBP", fullName: "British Pound Sterling"),
     Symbol(symbol: "JPY", fullName: "Japanese Yen"),
     Symbol(symbol: "USD", fullName: "United States Dollar")
-        ]
-        }
+    ]
+}
 
 
 struct BaseCurrencyFilterView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    
+    @StateObject var viewModel = BaseCurrencyFilterViewModel()
+    
+    @State private var selection: String?
+    
+    @State private var searchText = ""
+    
+    var searchesResult: [Symbol] {
+        if searchText.isEmpty {
+            return viewModel.symbols
+        } else {
+            return viewModel.symbols.filter {
+                $0.symbol.contains(searchText.uppercased()) ||
+                $0.fullName.uppercased().contains(searchText.uppercased())
+            }
+        }
     }
+    
+    var body: some View {
+        NavigationView {
+            listCurrencyView
+        }
+    }
+    
+    private var listCurrencyView: some View {
+        List(searchesResult, id: \.symbol, selection: $selection) { item in
+            HStack {
+                Text(item.symbol)
+                    .font(.system(size: 14, weight: .bold))
+                Text("-")
+                    .font(.system(size: 14, weight: .semibold))
+                Text(item.fullName)
+                    .font(.system(size: 14, weight: .semibold))
+            }
+        }
+        .searchable(text: $searchText)
+        .navigationTitle("Filter Currencies")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            Button {
+                print("Select currency button")
+            } label: {
+                Text("OK")
+                    .fontWeight(.bold
+                    )
+            }
+        }
+    }
+    
+  
 }
 
 struct BaseCurrencyFilterView_Previews: PreviewProvider {
