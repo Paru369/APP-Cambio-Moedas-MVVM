@@ -74,6 +74,7 @@ struct RateFluctuationDetailView: View {
     
     @State var baseCurrency: String
     @State var rateFluctuation: Fluctuation
+    @State private var isPresentedMultipleCurrencyFilter = false
     
     var body: some View {
         ScrollView(showsIndicators: false) {
@@ -216,7 +217,7 @@ struct RateFluctuationDetailView: View {
                 ForEach(viewModel.fluctuations) { fluctuation in
                     
                     Button {
-                        print("Comparations")
+                       print("Comparations")
                     } label: {
                         VStack(alignment: .leading, spacing: 4) {
                             Text("\(fluctuation.symbol) / \(baseCurrency)")
@@ -254,11 +255,13 @@ struct RateFluctuationDetailView: View {
     
     private var buttonComparationView: some View {
         Button {
-            print("Comparar com")
+            isPresentedMultipleCurrencyFilter.toggle()
         } label: {
             Image(systemName: "magnifyingglass")
             Text("Compare com")
                 .font(.system(size:16))
+        }
+        .fullScreenCover(isPresented: $isPresentedMultipleCurrencyFilter) { CurrencySelectionFilterView()
         }
     }
     
