@@ -13,8 +13,10 @@ extension RatesFluctuationView {
     @MainActor class ViewModel: ObservableObject {
         @Published var ratesFluctuations =  [RateFluctuationModel]()
         
-        private let dataProvider: RatesHistoricalDataProvider?
-        init(dataProvider: RatesHistoricalDataProvider? = RatesHistoricalDataProvider()) {
+        private let dataProvider: RatesFluctuationDataProvider?
+        
+        
+        init(dataProvider: RatesFluctuationDataProvider? = RatesFluctuationDataProvider()) {
             self.dataProvider = dataProvider
             self.dataProvider.self
         }
