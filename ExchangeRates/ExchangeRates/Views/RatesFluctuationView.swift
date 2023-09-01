@@ -10,26 +10,18 @@ import SwiftUI
 // ---------------------- MOCK -------------------
 
 
-class RatesFluctuationVieWModel: ObservableObject {
-    @Published var fluctuations: [RateFluctuationModel] = [
-        RateFluctuationModel(symbol: "USD", change: 0.0008, changePct: 0.4175, endRate:8.18857),
-        RateFluctuationModel(symbol: "EUR", change: 0.8083, changePct: 0.1651, endRate: 0.181353),
-        RateFluctuationModel(symbol: "GBP", change: -0.0001, changePct: -0.0483, endRate: 0.158915)
-    ]
-}
-
 struct RatesFluctuationView: View {
     
-    @StateObject var viewModel = RatesFluctuationVieWModel()
+    @StateObject var viewModel = VieWModel()
     @State private var searchText  = ""
     @State private var isPresentedBaseCurrencyFilter = false
     @State private var isPresentedMultipleCurrencyFilter = false
 
     var searchResult: [RateFluctuationModel] {
         if searchText.isEmpty{
-            return viewModel.fluctuations
+            return viewModel.rateFluctuations
         } else {
-            return viewModel.fluctuations.filter {
+            return viewModel.rateFluctuations.filter {
                 $0.symbol.contains(searchText.uppercased())  ||
                 $0.change.formatter(decimalPlaces: 4).contains(searchText.uppercased()) ||
                 $0.changePct.toPercentage().contains(searchText.uppercased()) ||

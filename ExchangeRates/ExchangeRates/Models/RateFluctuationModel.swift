@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct RateFluctuationModel: Identifiable, Equatable { //
+struct RateFluctuationModel: Identifiable { //
     let id = UUID()
     var symbol: String
     var change: Double
