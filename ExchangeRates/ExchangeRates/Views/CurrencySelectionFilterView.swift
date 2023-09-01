@@ -36,7 +36,6 @@ struct CurrencySelectionFilterView: View {
         }
     }
     
-
     var body: some View {
         NavigationView {
             listCurrencyView
