@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-class MultiCurrencyFilterViewModel: ObservableObject {
+class MultiCurrencyFilterViewViewModel: ObservableObject {
 @Published var symbols: [CurrencySymbolModel] = [
-    CurrencySymbolModel(symbol:"BRL", fullName: "Brazilian Real"),
+    CurrencySymbolModel(symbol: "BRL", fullName: "Brazilian Real"),
     CurrencySymbolModel(symbol: "EUR", fullName: "Euro"),
     CurrencySymbolModel(symbol: "GBP", fullName: "British Pound Sterling"),
     CurrencySymbolModel(symbol: "JPY", fullName: "Japanese Yen"),
@@ -21,7 +21,7 @@ struct CurrencySelectionFilterView: View {
     
     @Environment(\.dismiss) var dismiss
     
-    @StateObject var viewModel = MultiCurrencyFilterViewModel()
+    @StateObject var viewModel = MultiCurrencyFilterViewViewModel()
     @State private var selections: [String] = []
     @State private var searchText = ""
    
