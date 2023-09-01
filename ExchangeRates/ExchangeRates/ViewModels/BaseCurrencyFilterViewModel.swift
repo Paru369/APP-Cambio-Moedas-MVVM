@@ -7,3 +7,10 @@
 
 import Foundation
 import SwiftUI
+
+extension BaseCurrencyFilterView {
+    @MainActor class ViewModel: ObservableObject {
+        @Published var currencySymbols = [CurrencySymbolModel]()
+
+    }
+}
