@@ -252,7 +252,7 @@ struct RateFluctuationDetailView: View {
             Text("Compare com")
                 .font(.system(size:16))
         }
-        .fullScreenCover(isPresented: $isPresentedMultipleCurrencyFilter) { CurrencySelectionFilterView()
+        .fullScreenCover(isPresented: $isPresentedMultipleCurrencyFilter) { MultiCurrenciesFilterView()
         }
     }
     

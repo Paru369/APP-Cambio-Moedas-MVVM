@@ -26,9 +26,7 @@ extension MultiCurrenciesFilterView {
         
         nonisolated func success(model: [CurrencySymbolModel]) {
             DispatchQueue.main.sync {
-                withAnimation {
-                    self.currencySymbols = model.sorted { $0.symbol < $1.symbol }
-                }
+                self.currencySymbols = model.sorted { $0.symbol < $1.symbol }
             }
         }
     }

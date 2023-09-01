@@ -57,7 +57,7 @@ struct RatesFluctuationView: View {
                 } label: {
                     Image(systemName: "slider.horizontal.3")
                 }
-                .fullScreenCover(isPresented: $isPresentedMultipleCurrencyFilter) { CurrencySelectionFilterView()
+                .fullScreenCover(isPresented: $isPresentedMultipleCurrencyFilter) { MultiCurrenciesFilterView()
                 }
                 
             }
