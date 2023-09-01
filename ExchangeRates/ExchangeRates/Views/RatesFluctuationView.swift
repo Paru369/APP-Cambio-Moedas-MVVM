@@ -28,7 +28,9 @@ struct RatesFluctuationView: View {
     
     @StateObject var viewModel = RatesFluctuationVieWModel()
     @State private var searchText  = ""
-    
+    @State private var isPresentedBaseCurrencyFilter = false
+    @State private var isPresentedMultipleCurrencyFilter = false
+
     var searchResult: [Fluctuation] {
         if searchText.isEmpty{
             return viewModel.fluctuations
@@ -56,9 +58,12 @@ struct RatesFluctuationView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 Button {
+                    isPresentedMultipleCurrencyFilter.toggle()
                     print("filtrar moedas")
                 } label: {
                     Image(systemName: "slider.horizontal.3")
+                }
+                .fullScreenCover(isPresented: $isPresentedMultipleCurrencyFilter) { CurrencySelectionFilterView()
                 }
                 
             }
@@ -68,7 +73,8 @@ struct RatesFluctuationView: View {
     private var baseCurrencyPeriodFilterView: some View {
         HStack(alignment: .center, spacing: 16) {
              Button {
-                 print("Filtar moeda base")
+                // print("Filter by currency")
+                 isPresentedBaseCurrencyFilter.toggle()
              } label: {
                  Text("BRL")
                      .font(.system(size: 14, weight: .bold))
@@ -79,6 +85,7 @@ struct RatesFluctuationView: View {
                              .stroke(.white, lineWidth: 8)
                      }
              }
+             .fullScreenCover(isPresented: $isPresentedBaseCurrencyFilter, content: { BaseCurrencyFilterView() })
              .background(Color(UIColor.lightGray))
              .cornerRadius(8)
              
@@ -144,6 +151,7 @@ struct RatesFluctuationView: View {
                             .foregroundColor(fluctuation.change.color())
                         Text("\(fluctuation.changePct.toPercentage())")
                             .font(.system(size: 14, weight: .bold))
+                            .foregroundColor(fluctuation.changePct.color())
                     }
                     Divider()
                         .padding(.leading, -20).padding(.trailing, -40)

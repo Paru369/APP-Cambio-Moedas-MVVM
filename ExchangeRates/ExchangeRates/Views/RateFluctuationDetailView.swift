@@ -71,9 +71,9 @@ class RateFluctuationViewModel: ObservableObject {
 struct RateFluctuationDetailView: View {
     
     @StateObject var viewModel = RateFluctuationViewModel()
-    
     @State var baseCurrency: String
     @State var rateFluctuation: Fluctuation
+    @State private var isPresentedMultipleCurrencyFilter = false
     
     var body: some View {
         ScrollView(showsIndicators: false) {
@@ -109,8 +109,6 @@ struct RateFluctuationDetailView: View {
         VStack {
             periodFilterView
             lineChartView
-            
-            
         }
         .padding(.top, 8)
         .padding(.bottom, 8)
@@ -216,7 +214,7 @@ struct RateFluctuationDetailView: View {
                 ForEach(viewModel.fluctuations) { fluctuation in
                     
                     Button {
-                        print("Comparations")
+                       print("Comparations")
                     } label: {
                         VStack(alignment: .leading, spacing: 4) {
                             Text("\(fluctuation.symbol) / \(baseCurrency)")
@@ -254,11 +252,13 @@ struct RateFluctuationDetailView: View {
     
     private var buttonComparationView: some View {
         Button {
-            print("Comparar com")
+            isPresentedMultipleCurrencyFilter.toggle()
         } label: {
             Image(systemName: "magnifyingglass")
             Text("Compare com")
                 .font(.system(size:16))
+        }
+        .fullScreenCover(isPresented: $isPresentedMultipleCurrencyFilter) { CurrencySelectionFilterView()
         }
     }
     
