@@ -58,7 +58,9 @@ struct BaseCurrencyFilterView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             Button {
-                delegate?.didSelected(selection ?? "BRL")
+                if let selection {
+                    delegate?.didSelected(selection)
+                }
                 dismiss()
             } label: {
                 Text("OK")

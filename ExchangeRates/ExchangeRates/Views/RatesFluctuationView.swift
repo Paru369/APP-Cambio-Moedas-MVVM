@@ -46,7 +46,7 @@ struct RatesFluctuationView: View {
                 } label: {
                     Image(systemName: "slider.horizontal.3")
                 }
-                .fullScreenCover(isPresented: $isPresentedMultipleCurrencyFilter) { MultiCurrenciesFilterView()
+                .fullScreenCover(isPresented: $isPresentedMultipleCurrencyFilter) { MultiCurrenciesFilterView(delegate: self)
                 }
                 
             }
@@ -64,7 +64,7 @@ struct RatesFluctuationView: View {
                 // print("Filter by currency")
                  isPresentedBaseCurrencyFilter.toggle()
              } label: {
-                 Text("BRL")
+                 Text(viewModel.baseCurrency)
                      .font(.system(size: 14, weight: .bold))
                      .padding(.init(top:4, leading: 8, bottom: 4, trailing: 8))
                      .foregroundColor(.white)
@@ -159,6 +159,13 @@ struct RatesFluctuationView: View {
 extension RatesFluctuationView: BaseCurrencyFilterViewDelegate {
     func didSelected(_ baseCurrency: String) {
         viewModel.baseCurrency = baseCurrency
+        viewModel.doFetchRatesFluctuation(timeRange: .today)
+    }
+}
+
+extension RatesFluctuationView: MultiCurrenciesFilterViewDelegate {
+    func didSelected(_ currencies: [String]) {
+        viewModel.currencies = currencies
         viewModel.doFetchRatesFluctuation(timeRange: .today)
     }
 }
