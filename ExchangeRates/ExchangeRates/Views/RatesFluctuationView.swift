@@ -73,7 +73,7 @@ struct RatesFluctuationView: View {
                              .stroke(.white, lineWidth: 8)
                      }
              }
-             .fullScreenCover(isPresented: $isPresentedBaseCurrencyFilter, content: { BaseCurrencyFilterView() })
+             .fullScreenCover(isPresented: $isPresentedBaseCurrencyFilter, content: { BaseCurrencyFilterView(delegate: self) })
              .background(Color(UIColor.lightGray))
              .cornerRadius(8)
              
@@ -154,6 +154,13 @@ struct RatesFluctuationView: View {
             }
             .listStyle(.plain)
         }
+}
+
+extension RatesFluctuationView: BaseCurrencyFilterViewDelegate {
+    func didSelected(_ baseCurrency: String) {
+        viewModel.baseCurrency = baseCurrency
+        viewModel.doFetchRatesFluctuation(timeRange: .today)
+    }
 }
 
 struct RatesFluctuationView_Previews: PreviewProvider {
