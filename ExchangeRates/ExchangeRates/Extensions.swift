@@ -73,7 +73,11 @@ extension Date {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "pt_BR_POSIX")
         dateFormatter.dateFormat = dateFormat
-        return dateFormatter.string(from: self) ?? "xxx"
+        return dateFormatter.string(from: self)
+    }
+    
+    func toString(dateFormat: String = "yyy-MM-dd") -> String {
+        return formatter(to:dateFormat)
     }
 }
 

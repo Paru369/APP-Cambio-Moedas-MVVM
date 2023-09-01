@@ -7,21 +7,18 @@
 
 import SwiftUI
 
-// ---------------------- MOCK -------------------
-
-
 struct RatesFluctuationView: View {
     
-    @StateObject var viewModel = VieWModel()
+    @StateObject var viewModel = ViewModel()
     @State private var searchText  = ""
     @State private var isPresentedBaseCurrencyFilter = false
     @State private var isPresentedMultipleCurrencyFilter = false
 
     var searchResult: [RateFluctuationModel] {
         if searchText.isEmpty{
-            return viewModel.rateFluctuations
+            return viewModel.ratesFluctuation
         } else {
-            return viewModel.rateFluctuations.filter {
+            return viewModel.ratesFluctuation.filter {
                 $0.symbol.contains(searchText.uppercased())  ||
                 $0.change.formatter(decimalPlaces: 4).contains(searchText.uppercased()) ||
                 $0.changePct.toPercentage().contains(searchText.uppercased()) ||
@@ -35,7 +32,6 @@ struct RatesFluctuationView: View {
             VStack {
                 
                 baseCurrencyPeriodFilterView
-                
                 ratesFluctuationListView
             }
             
@@ -53,6 +49,9 @@ struct RatesFluctuationView: View {
                 }
                 
             }
+        }
+        .onAppear{
+            viewModel.doFetchRatesFluctuation(timeRange: .today)
         }
     }
     

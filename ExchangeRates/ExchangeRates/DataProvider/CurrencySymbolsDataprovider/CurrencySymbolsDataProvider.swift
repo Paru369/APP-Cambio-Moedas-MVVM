@@ -25,8 +25,8 @@ class CurrencySymbolsDataProvider: DataProviderManager<CurrencySymbolsDataProvid
         Task.init {
             do {
                 let object = try await currencyStore.fetchSymbols()
-                delegate?.success(model: object) //.map({ (key, value) -> CurrencySymbolModel in
-                  //  return CurrencySymbolModel(symbol: key, fullName: value)
+                delegate?.success(model: object) //.map({ (symbol, fullName) -> CurrencySymbolModel in
+                  //  return CurrencySymbolModel(symbol: symbol, fullName: fullName)
              //   }))
             } catch {
                 delegate?.errorData(delegate, error: error)
