@@ -8,12 +8,12 @@
 import SwiftUI
 
 class CurrencySelectionFilterViewModel: ObservableObject {
-@Published var symbols: [Symbol] = [
-    Symbol(symbol:"BRL", fullName: "Brazilian Real"),
-    Symbol(symbol: "EUR", fullName: "Euro"),
-    Symbol(symbol: "GBP", fullName: "British Pound Sterling"),
-    Symbol(symbol: "JPY", fullName: "Japanese Yen"),
-    Symbol(symbol: "USD", fullName: "United States Dollar")
+@Published var symbols: [CurrencySymbolModel] = [
+    CurrencySymbolModel(symbol:"BRL", fullName: "Brazilian Real"),
+    CurrencySymbolModel(symbol: "EUR", fullName: "Euro"),
+    CurrencySymbolModel(symbol: "GBP", fullName: "British Pound Sterling"),
+    CurrencySymbolModel(symbol: "JPY", fullName: "Japanese Yen"),
+    CurrencySymbolModel(symbol: "USD", fullName: "United States Dollar")
     ]
 }
 
@@ -25,7 +25,7 @@ struct CurrencySelectionFilterView: View {
     @State private var selections: [String] = []
     @State private var searchText = ""
    
-    var searchesResult: [Symbol] {
+    var searchesResult: [CurrencySymbolModel] {
         if searchText.isEmpty {
             return viewModel.symbols
         } else {

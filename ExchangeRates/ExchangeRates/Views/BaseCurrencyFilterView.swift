@@ -7,19 +7,15 @@
 
 import SwiftUI
 
-struct Symbol: Identifiable, Equatable {
-    let id = UUID()
-    var symbol: String
-    var fullName: String
-}
+
 
 class BaseCurrencyFilterViewModel: ObservableObject {
-@Published var symbols: [Symbol] = [
-    Symbol(symbol:"BRL", fullName: "Brazilian Real"),
-    Symbol(symbol: "EUR", fullName: "Euro"),
-    Symbol(symbol: "GBP", fullName: "British Pound Sterling"),
-    Symbol(symbol: "JPY", fullName: "Japanese Yen"),
-    Symbol(symbol: "USD", fullName: "United States Dollar")
+@Published var symbols: [CurrencySymbolModel] = [
+    CurrencySymbolModel(symbol:"BRL", fullName: "Brazilian Real"),
+    CurrencySymbolModel(symbol: "EUR", fullName: "Euro"),
+    CurrencySymbolModel(symbol: "GBP", fullName: "British Pound Sterling"),
+    CurrencySymbolModel(symbol: "JPY", fullName: "Japanese Yen"),
+    CurrencySymbolModel(symbol: "USD", fullName: "United States Dollar")
     ]
 }
 
@@ -34,7 +30,7 @@ struct BaseCurrencyFilterView: View {
     
     @State private var searchText = ""
     
-    var searchesResult: [Symbol] {
+    var searchesResult: [CurrencySymbolModel] {
         if searchText.isEmpty {
             return viewModel.symbols
         } else {
