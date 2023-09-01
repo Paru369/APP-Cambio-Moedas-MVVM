@@ -18,7 +18,6 @@ class CurrencyStore: BaseStore, CurrencyStoreProtocol {
         let (data, response) = try await URLSession.shared.data(for: urlRequest)
         
         guard let symbols = try SymbolResult(data: data, response: response).symbols else { throw error }
-        print("xxx \(symbols)")
         return symbols
     }
 }

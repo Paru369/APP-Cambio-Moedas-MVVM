@@ -14,7 +14,6 @@ struct BaseCurrencyFilterView: View {
     @StateObject var viewModel = ViewModel()
     
     @State private var selection: String?
-    
     @State private var searchText = ""
     
     var searchesResult: [CurrencySymbolModel] {
@@ -32,6 +31,7 @@ struct BaseCurrencyFilterView: View {
         NavigationView {
             listCurrencyView
         }
+        .onAppear()
     }
     
     private var listCurrencyView: some View {

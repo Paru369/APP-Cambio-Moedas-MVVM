@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CurrencySymbolModel: Identifiable, Equatable {
+struct CurrencySymbolModel: Identifiable {
     let id = UUID()
     var symbol: String
     var fullName: String
