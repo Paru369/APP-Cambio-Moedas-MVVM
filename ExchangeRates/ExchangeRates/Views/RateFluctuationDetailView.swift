@@ -8,13 +8,7 @@
 import SwiftUI
 import Charts
 
-struct ChartComparation: Identifiable, Equatable {
-    let id = UUID()
-    var symbol: String
-    var period: Date
-    var endRate: Double
-    
-}
+
 
 
 class RateFluctuationViewModel: ObservableObject {
@@ -24,11 +18,11 @@ class RateFluctuationViewModel: ObservableObject {
         RateFluctuationModel(symbol: "GBP", change: -0.0001, changePct: -0.8403, endRate: 0.158915)
     ]
     
-    @Published var chartComparations: [ChartComparation] = [
-        ChartComparation(symbol: "USD", period: "2822-11-10".toDate(), endRate: 0.19857),
-        ChartComparation(symbol: "USD", period: "2022-11-15".toDate(), endRate: 0.18857),
-        ChartComparation(symbol: "USD", period: "2022-11-18".toDate(), endRate: 0.177786),
-        ChartComparation(symbol: "USD", period: "2022-11-30".toDate(), endRate: 0.157873)
+    @Published var chartComparations: [RateHistoricalModel] = [
+        RateHistoricalModel(symbol: "USD", period: "2822-11-10".toDate(), endRate: 0.19857),
+        RateHistoricalModel(symbol: "USD", period: "2022-11-15".toDate(), endRate: 0.18857),
+        RateHistoricalModel(symbol: "USD", period: "2022-11-18".toDate(), endRate: 0.177786),
+        RateHistoricalModel(symbol: "USD", period: "2022-11-30".toDate(), endRate: 0.157873)
     ]
     
     var hasRates: Bool {
