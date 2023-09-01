@@ -30,8 +30,7 @@ struct RatesFluctuationView: View {
     @State private var searchText  = ""
     @State private var isPresentedBaseCurrencyFilter = false
     @State private var isPresentedMultipleCurrencyFilter = false
-    
-    
+
     var searchResult: [Fluctuation] {
         if searchText.isEmpty{
             return viewModel.fluctuations

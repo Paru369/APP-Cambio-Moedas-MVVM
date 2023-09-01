@@ -71,7 +71,6 @@ class RateFluctuationViewModel: ObservableObject {
 struct RateFluctuationDetailView: View {
     
     @StateObject var viewModel = RateFluctuationViewModel()
-    
     @State var baseCurrency: String
     @State var rateFluctuation: Fluctuation
     @State private var isPresentedMultipleCurrencyFilter = false
@@ -110,8 +109,6 @@ struct RateFluctuationDetailView: View {
         VStack {
             periodFilterView
             lineChartView
-            
-            
         }
         .padding(.top, 8)
         .padding(.bottom, 8)
