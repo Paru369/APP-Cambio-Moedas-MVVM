@@ -7,35 +7,18 @@
 
 import SwiftUI
 
-// ---------------------- MOCK -------------------
-struct Fluctuation: Identifiable, Equatable { //  Equatable
-    let id = UUID()
-    var symbol: String
-    var change: Double
-    var changePct: Double
-    var endRate: Double
-}
-
-class RatesFluctuationVieWModel: ObservableObject {
-    @Published var fluctuations: [Fluctuation] = [
-        Fluctuation(symbol: "USD", change: 0.0008, changePct: 0.4175, endRate:8.18857),
-        Fluctuation(symbol: "EUR", change: 0.8083, changePct: 0.1651, endRate: 0.181353),
-        Fluctuation(symbol: "GBP", change: -0.0001, changePct: -0.0483, endRate: 0.158915)
-    ]
-}
-
 struct RatesFluctuationView: View {
     
-    @StateObject var viewModel = RatesFluctuationVieWModel()
+    @StateObject var viewModel = ViewModel()
     @State private var searchText  = ""
     @State private var isPresentedBaseCurrencyFilter = false
     @State private var isPresentedMultipleCurrencyFilter = false
 
-    var searchResult: [Fluctuation] {
+    var searchResult: [RateFluctuationModel] {
         if searchText.isEmpty{
-            return viewModel.fluctuations
+            return viewModel.ratesFluctuation
         } else {
-            return viewModel.fluctuations.filter {
+            return viewModel.ratesFluctuation.filter {
                 $0.symbol.contains(searchText.uppercased())  ||
                 $0.change.formatter(decimalPlaces: 4).contains(searchText.uppercased()) ||
                 $0.changePct.toPercentage().contains(searchText.uppercased()) ||
@@ -49,7 +32,6 @@ struct RatesFluctuationView: View {
             VStack {
                 
                 baseCurrencyPeriodFilterView
-                
                 ratesFluctuationListView
             }
             
@@ -63,10 +45,13 @@ struct RatesFluctuationView: View {
                 } label: {
                     Image(systemName: "slider.horizontal.3")
                 }
-                .fullScreenCover(isPresented: $isPresentedMultipleCurrencyFilter) { CurrencySelectionFilterView()
+                .fullScreenCover(isPresented: $isPresentedMultipleCurrencyFilter) { MultiCurrenciesFilterView()
                 }
                 
             }
+        }
+        .onAppear{
+            viewModel.doFetchRatesFluctuation(timeRange: .today)
         }
     }
     

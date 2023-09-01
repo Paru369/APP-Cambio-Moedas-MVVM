@@ -38,13 +38,14 @@ struct ContentView: View {
 }
 
 extension ContentView: RatesFluctuationDataProviderDelegate {
-    func success (model: RatesFluctuationObject) {
+    func success(model: [RateFluctuationModel]) {
         print ("RateFluctuationModel: \(model)\nin")
     }
+    
 }
 
 extension ContentView: CurrencySymbolsDataProviderDelegate {
-    func success (model: CurrencySymbolObject) {
+    func success (model: [CurrencySymbolModel]) {
         print ("RateSymbolDataProviderDelegate: \(model)\n\n")
     }
 }

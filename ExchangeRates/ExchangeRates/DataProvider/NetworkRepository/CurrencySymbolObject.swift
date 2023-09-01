@@ -15,3 +15,4 @@ struct CurrencySymbolObject: Codable {
 }
 
 typealias SymbolObject = [String: String]
+

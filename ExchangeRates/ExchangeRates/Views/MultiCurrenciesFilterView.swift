@@ -1,5 +1,5 @@
 //
-//  CurrencySelectionFilterView.swift
+//  MultiCurrencyFilterViewModel.swift
 //  ExchangeRates
 //
 //  Created by Paulo Pinheiro on 8/31/23.
@@ -7,39 +7,32 @@
 
 import SwiftUI
 
-class CurrencySelectionFilterViewModel: ObservableObject {
-@Published var symbols: [Symbol] = [
-    Symbol(symbol:"BRL", fullName: "Brazilian Real"),
-    Symbol(symbol: "EUR", fullName: "Euro"),
-    Symbol(symbol: "GBP", fullName: "British Pound Sterling"),
-    Symbol(symbol: "JPY", fullName: "Japanese Yen"),
-    Symbol(symbol: "USD", fullName: "United States Dollar")
-    ]
-}
 
-struct CurrencySelectionFilterView: View {
+struct MultiCurrenciesFilterView: View {
     
     @Environment(\.dismiss) var dismiss
     
-    @StateObject var viewModel = CurrencySelectionFilterViewModel()
+    @StateObject var viewModel = ViewModel()
     @State private var selections: [String] = []
     @State private var searchText = ""
    
-    var searchesResult: [Symbol] {
+    var searchesResult: [CurrencySymbolModel] {
         if searchText.isEmpty {
-            return viewModel.symbols
+            return viewModel.currencySymbols
         } else {
-            return viewModel.symbols.filter {
+            return viewModel.currencySymbols.filter {
                 $0.symbol.contains(searchText.uppercased()) ||
                 $0.fullName.uppercased().contains(searchText.uppercased())
             }
         }
     }
     
-
     var body: some View {
         NavigationView {
             listCurrencyView
+        }
+        .onAppear{
+            viewModel.doFetchCurrencySymbols()
         }
     }
     
@@ -87,8 +80,8 @@ struct CurrencySelectionFilterView: View {
     
 }
 
-struct CurrencySelectionFilterView_Previews: PreviewProvider {
+struct MultiCurrenciesFilterView_Previews: PreviewProvider {
     static var previews: some View {
-        CurrencySelectionFilterView()
+        MultiCurrenciesFilterView()
     }
 }

@@ -8,27 +8,21 @@
 import SwiftUI
 import Charts
 
-struct ChartComparation: Identifiable, Equatable {
-    let id = UUID()
-    var symbol: String
-    var period: Date
-    var endRate: Double
-    
-}
+
 
 
 class RateFluctuationViewModel: ObservableObject {
-    @Published var fluctuations: [Fluctuation] = [
-        Fluctuation(symbol: "JPY", change: 0.0008, changePct: 0.0085, endRate: 0.087242),
-        Fluctuation(symbol: "EUR", change: 0.0003, changePct: 0.1651, endRate: 0.181353),
-        Fluctuation(symbol: "GBP", change: -0.0001, changePct: -0.8403, endRate: 0.158915)
+    @Published var fluctuations: [RateFluctuationModel] = [
+        RateFluctuationModel(symbol: "JPY", change: 0.0008, changePct: 0.0085, endRate: 0.087242),
+        RateFluctuationModel(symbol: "EUR", change: 0.0003, changePct: 0.1651, endRate: 0.181353),
+        RateFluctuationModel(symbol: "GBP", change: -0.0001, changePct: -0.8403, endRate: 0.158915)
     ]
     
-    @Published var chartComparations: [ChartComparation] = [
-        ChartComparation(symbol: "USD", period: "2822-11-10".toDate(), endRate: 0.19857),
-        ChartComparation(symbol: "USD", period: "2022-11-15".toDate(), endRate: 0.18857),
-        ChartComparation(symbol: "USD", period: "2022-11-18".toDate(), endRate: 0.177786),
-        ChartComparation(symbol: "USD", period: "2022-11-30".toDate(), endRate: 0.157873)
+    @Published var chartComparations: [RateHistoricalModel] = [
+        RateHistoricalModel(symbol: "USD", period: "2822-11-10".toDate(), endRate: 0.19857),
+        RateHistoricalModel(symbol: "USD", period: "2022-11-15".toDate(), endRate: 0.18857),
+        RateHistoricalModel(symbol: "USD", period: "2022-11-18".toDate(), endRate: 0.177786),
+        RateHistoricalModel(symbol: "USD", period: "2022-11-30".toDate(), endRate: 0.157873)
     ]
     
     var hasRates: Bool {
@@ -72,7 +66,7 @@ struct RateFluctuationDetailView: View {
     
     @StateObject var viewModel = RateFluctuationViewModel()
     @State var baseCurrency: String
-    @State var rateFluctuation: Fluctuation
+    @State var rateFluctuation: RateFluctuationModel
     @State private var isPresentedMultipleCurrencyFilter = false
     
     var body: some View {
@@ -258,7 +252,7 @@ struct RateFluctuationDetailView: View {
             Text("Compare com")
                 .font(.system(size:16))
         }
-        .fullScreenCover(isPresented: $isPresentedMultipleCurrencyFilter) { CurrencySelectionFilterView()
+        .fullScreenCover(isPresented: $isPresentedMultipleCurrencyFilter) { MultiCurrenciesFilterView()
         }
     }
     
@@ -266,6 +260,6 @@ struct RateFluctuationDetailView: View {
 
 struct RatesFluctuationDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        RateFluctuationDetailView(baseCurrency: "BRL", rateFluctuation:  Fluctuation(symbol: "EUR", change: 8.0003, changePct: 0.1651, endRate: 0.181353))
+        RateFluctuationDetailView(baseCurrency: "BRL", rateFluctuation:  RateFluctuationModel(symbol: "EUR", change: 8.0003, changePct: 0.1651, endRate: 0.181353))
     }
 }
