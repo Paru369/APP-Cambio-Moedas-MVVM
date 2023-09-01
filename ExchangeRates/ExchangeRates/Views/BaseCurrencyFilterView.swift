@@ -31,7 +31,9 @@ struct BaseCurrencyFilterView: View {
         NavigationView {
             listCurrencyView
         }
-        .onAppear()
+        .onAppear{
+            viewModel.doFetchCurrencySymbols()
+        }
     }
     
     private var listCurrencyView: some View {

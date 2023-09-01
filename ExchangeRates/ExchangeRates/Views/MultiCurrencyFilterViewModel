@@ -1,5 +1,5 @@
 //
-//  CurrencySelectionFilterView.swift
+//  MultiCurrencyFilterViewModel.swift
 //  ExchangeRates
 //
 //  Created by Paulo Pinheiro on 8/31/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class CurrencySelectionFilterViewModel: ObservableObject {
+class MultiCurrencyFilterViewModel: ObservableObject {
 @Published var symbols: [CurrencySymbolModel] = [
     CurrencySymbolModel(symbol:"BRL", fullName: "Brazilian Real"),
     CurrencySymbolModel(symbol: "EUR", fullName: "Euro"),
@@ -21,7 +21,7 @@ struct CurrencySelectionFilterView: View {
     
     @Environment(\.dismiss) var dismiss
     
-    @StateObject var viewModel = CurrencySelectionFilterViewModel()
+    @StateObject var viewModel = MultiCurrencyFilterViewModel()
     @State private var selections: [String] = []
     @State private var searchText = ""
    

@@ -44,7 +44,7 @@ extension ContentView: RatesFluctuationDataProviderDelegate {
 }
 
 extension ContentView: CurrencySymbolsDataProviderDelegate {
-    func success (model: CurrencySymbolObject) {
+    func success (model: [CurrencySymbolModel]) {
         print ("RateSymbolDataProviderDelegate: \(model)\n\n")
     }
 }
