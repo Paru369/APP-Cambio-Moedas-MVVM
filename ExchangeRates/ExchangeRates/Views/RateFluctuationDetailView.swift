@@ -9,51 +9,9 @@ import SwiftUI
 import Charts
 
 
-
-
-class RateFluctuationViewModel: ObservableObject {
-   
-    
-    var hasRates: Bool {
-        return rateHistorical.filter { $0.endRate > 0 }.count > 0
-    }
-    
-    var yAxisMin: Double {
-        let min = rateHistorical.map { $0.endRate }.min() ?? 0.0
-        return (min - (min * 0.02))
-    }
-    
-    var yAxisMax: Double {
-        let max =  rateHistorical.map { $0.endRate }.max() ?? 0.0
-        return (max + (max * 0.02))
-    }
-    
- 
-    
-    func XAxisLabelFormatstyle(for date: Date) -> String {
-        switch timeRange {
-        case .today: return date.formatter(to: "HH:mm")
-        case .thisWeek, .thisMonth: return date.formatter(to: "dd, MMM")
-        case .thisSemester: return date.formatter (to: "MMM")
-        case .thisYear: return date.formatter(to: "MMM, YYYY")
-        }
-    }
-    
-//    func addFluctuation(fluctuation: Fluctuation) {
-//        fluctuations.insert(fluctuation, at: 0)
-//    }
-    
-    
-//    func renoveFluctuations(fluctuation: Fluctuation) {
-//        if let index = fluctuations.firstIndex(of: fluctuation) {
-//            fluctuations.remove(at: index)
-//        }
-//    }
-    
-}
 struct RateFluctuationDetailView: View {
     
-    @StateObject var viewModel = RateFluctuationViewModel()
+    @StateObject var viewModel = ViewModel()
     @State var baseCurrency: String
     @State var rateFluctuation: RateFluctuationModel
     @State private var isPresentedMultipleCurrencyFilter = false
