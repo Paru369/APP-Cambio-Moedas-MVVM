@@ -84,6 +84,36 @@ extension RateFluctuationDetailView {
             self.historicalDataProvider?.delegate = self
         }
         
+        func startStateView(baseCurrency: String, rateFluctuation: RateFluctuationModel, timeRange: TimeRangeEnum) {
+            self.baseCurrency = baseCurrency
+            self.rateFluctuation = rateFluctuation
+        }
+        
+        func doFetchData(from timeRange: TimeRangeEnum) {
+            ratesFluctuation.removeAll()
+            rateHistorical.removeAll()
+            
+            withAnimation {
+                self.timeRange = timeRange
+            }
+            doFetchRatesFluctuation()
+        }
+        
+        private func doFetchRatesFluctuation() {
+            if let baseCurrency {
+                let startDate = timeRange.date
+                let endDate = Date()
+                fluctuationDataProvider?.fetchFluctuation(by: baseCurrency, from: [], startDate: startDate.toString(), endDate: endDate.toString())
+            }
+        }
+        
+        private func doFetchRatesHistorical(by currency: String) {
+            if let baseCurrency {
+                let startDate = timeRange.date
+                let endDate = Date()
+                historicalDataProvider?.fetchTimeseries(by: baseCurrency, from: currency, startDate: startDate.toString(), endDate: endDate.toString())
+        }
+        
         nonisolated func success(model: [RateFluctuationModel]) {
             DispatchQueue.main.async {
                 self.rateFluctuation = model.filter({ $0.symbol == self.symbol}).first
