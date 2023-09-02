@@ -64,7 +64,7 @@ struct RateFluctuationDetailView: View {
     private var periodFilterView: some View {
         HStack(spacing: 16) {
             Button {
-                print("1 dia")
+                viewModel.doFetchData(from: .today)
             } label : {
                 Text("1 dia")
                     .font(.system(size: 14, weight: .bold))
@@ -73,7 +73,7 @@ struct RateFluctuationDetailView: View {
             }
             
             Button {
-                print("7 dia")
+                viewModel.doFetchData(from: .thisWeek)
             } label : {
                 Text("7 dia")
                     .font(.system(size: 14, weight: .bold))
@@ -81,7 +81,7 @@ struct RateFluctuationDetailView: View {
             }
             
             Button {
-                print("1 mês")
+                viewModel.doFetchData(from: .thisMonth)
             } label : {
                 Text("1 mês")
                     .font(.system(size: 14, weight: .bold))
@@ -89,7 +89,7 @@ struct RateFluctuationDetailView: View {
             }
             
             Button {
-                print("6 meses")
+                viewModel.doFetchData(from: .thisSemester)
             } label : {
                 Text("6 meses")
                     .font(.system(size: 14, weight: .bold))
@@ -97,7 +97,7 @@ struct RateFluctuationDetailView: View {
             }
             
             Button {
-                print("1 ano")
+                viewModel.doFetchData(from: .thisYear)
             } label : {
                 Text("1 ano")
                     .font(.system(size: 14, weight: .bold))
