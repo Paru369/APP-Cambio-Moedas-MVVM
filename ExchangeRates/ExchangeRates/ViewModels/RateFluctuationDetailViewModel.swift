@@ -52,6 +52,14 @@ extension RateFluctuationDetailView {
             
         }
         
+        var xAxisStride: Calendar.Component {
+            switch timeRange {
+            case .today: return .hour
+            case .thisWeek, .thisMonth: return .day
+            case .thisSemester, .thisYear: return .month
+            }
+        }
+        
         var xAxisStrideCount: Int {
            
             switch timeRange {
@@ -73,17 +81,6 @@ extension RateFluctuationDetailView {
             return (max + (max * 0.02))
         }
         
-        
-        
-        func XAxisLabelFormatstyle(for date: Date) -> String {
-            switch timeRange {
-            case .today: return date.formatter(to: "HH:mm")
-            case .thisWeek, .thisMonth: return date.formatter(to: "dd, MMM")
-            case .thisSemester: return date.formatter (to: "MMM")
-            case .thisYear: return date.formatter(to: "MMM, YYYY")
-            }
-        }
-        
         private var fluctuationDataProvider: RatesFluctuationDataProvider?
         private var historicalDataProvider: RatesHistoricalDataProvider?
         
@@ -96,6 +93,16 @@ extension RateFluctuationDetailView {
             self.fluctuationDataProvider?.delegate = self
             self.historicalDataProvider?.delegate = self
         }
+        
+        func XAxisLabelFormatstyle(for date: Date) -> String {
+            switch timeRange {
+            case .today: return date.formatter(to: "HH:mm")
+            case .thisWeek, .thisMonth: return date.formatter(to: "dd, MMM")
+            case .thisSemester: return date.formatter (to: "MMM")
+            case .thisYear: return date.formatter(to: "MMM, YYYY")
+            }
+        }
+        
         
         func startStateView(baseCurrency: String, rateFluctuation: RateFluctuationModel, timeRange: TimeRangeEnum) {
             self.baseCurrency = baseCurrency

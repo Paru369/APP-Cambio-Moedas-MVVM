@@ -131,7 +131,7 @@ struct RateFluctuationDetailView: View {
             }
         }
         .chartXAxis {
-            AxisMarks(preset: .aligned) {date in
+            AxisMarks(preset: .aligned, values: .stride(by: viewModel.xAxisStride, count: viewModel.xAxisStrideCount)) {date in
                 AxisGridLine()
                 AxisValueLabel(viewModel.XAxisLabelFormatstyle(for: date.as(Date.self) ?? Date()))
             }
