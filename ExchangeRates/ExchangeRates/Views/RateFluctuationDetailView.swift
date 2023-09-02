@@ -39,12 +39,10 @@ struct RateFluctuationDetailView: View {
                 .font(.system(size: 18, weight: .semibold))
                 .foregroundColor(viewModel.changePct.color())
                 .background(viewModel.change.color().opacity(0.2))
-            Text(viewModel.change.formatter(decimalPlaces: 4, with: true))
+            Text(viewModel.changeDescription)
                 .font(.system(size: 18, weight: .semibold))
                 .foregroundColor(viewModel.change.color())
-            Text(viewModel.endRate.formatter(decimalPlaces: 4, with: true))
-                .font(.system(size: 18, weight: .semibold))
-                .foregroundColor(viewModel.change.color())
+           
             
             Spacer()
             
@@ -108,6 +106,7 @@ struct RateFluctuationDetailView: View {
                     .underline(viewModel.timeRange == .thisYear)
             }
         }
+       
     }
     
     private var lineChartView: some View {
@@ -209,8 +208,10 @@ struct RateFluctuationDetailView: View {
             Text("Compare com")
                 .font(.system(size:16))
         }
-        .fullScreenCover(isPresented: $isPresentedMultipleCurrencyFilter) { MultiCurrenciesFilterView()
-        }
+        .fullScreenCover(isPresented: $isPresentedMultipleCurrencyFilter, content: {
+            BaseCurrencyFilterView()
+        })
+        .opacity(viewModel.ratesFluctuation.count == 0 ? 0 : 1)
     }
     
 }

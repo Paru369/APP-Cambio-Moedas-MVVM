@@ -52,6 +52,17 @@ extension RateFluctuationDetailView {
             
         }
         
+        var xAxisStrideCount: Int {
+           
+            switch timeRange {
+            case .today: return 6
+            case .thisWeek: return 2
+            case  .thisMonth: return 6
+            case .thisSemester: return 2
+            case .thisYear: return 3
+            }
+        }
+        
         var yAxisMin: Double {
             let min = rateHistorical.map { $0.endRate }.min() ?? 0.0
             return (min - (min * 0.02))
