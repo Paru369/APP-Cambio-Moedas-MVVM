@@ -164,8 +164,7 @@ struct RateFluctuationDetailView: View {
                 ForEach(viewModel.ratesFluctuation) { fluctuation in
                     
                     Button {
-                       print("Comparations")
-                    } label: {
+                        viewModel.doComparation(with: fluctuation)                    } label: {
                         VStack(alignment: .leading, spacing: 4) {
                             Text("\(fluctuation.symbol) / \(baseCurrency)")
                                 .font(.system(size: 14))
