@@ -23,7 +23,12 @@ struct RateFluctuationDetailView: View {
             graphicChartView
             comparationView
         }
+        .padding(.leading, 8)
+        .padding(.trailing, 8)
         .navigationTitle(viewModel.title)
+        .onAppear {
+            viewModel.startStateView(baseCurrency: baseCurrency, rateFluctuation: rateFluctuation, timeRange: .today)
+        }
     }
     
     private var valuesView: some View {

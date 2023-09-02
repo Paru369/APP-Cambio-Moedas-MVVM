@@ -61,7 +61,6 @@ struct RatesFluctuationView: View {
     private var baseCurrencyPeriodFilterView: some View {
         HStack(alignment: .center, spacing: 16) {
              Button {
-                // print("Filter by currency")
                  isPresentedBaseCurrencyFilter.toggle()
              } label: {
                  Text(viewModel.baseCurrency)
