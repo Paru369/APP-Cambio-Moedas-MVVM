@@ -157,6 +157,20 @@ struct RateFluctuationDetailView: View {
         .padding(.bottom, 8)
     }
     
+    private var buttonComparationView: some View {
+        Button {
+            isPresentedMultipleCurrencyFilter.toggle()
+        } label: {
+            Image(systemName: "magnifyingglass")
+            Text("Compare com")
+                .font(.system(size:16))
+        }
+        .fullScreenCover(isPresented: $isPresentedMultipleCurrencyFilter, content: {
+            BaseCurrencyFilterView(delegate: self)
+        })
+        .opacity(viewModel.ratesFluctuation.count == 0 ? 0 : 1)
+    }
+    
     
     private var scrollComparationView: some View {
         ScrollView(.horizontal, showsIndicators: false) {
@@ -199,23 +213,17 @@ struct RateFluctuationDetailView: View {
     }
     
     
-    private var buttonComparationView: some View {
-        Button {
-            isPresentedMultipleCurrencyFilter.toggle()
-        } label: {
-            Image(systemName: "magnifyingglass")
-            Text("Compare com")
-                .font(.system(size:16))
-        }
-        .fullScreenCover(isPresented: $isPresentedMultipleCurrencyFilter, content: {
-            BaseCurrencyFilterView()
-        })
-        .opacity(viewModel.ratesFluctuation.count == 0 ? 0 : 1)
-    }
+    
     
 }
 
-struct RatesFluctuationDetailView_Previews: PreviewProvider {
+extension RateFluctuationDetailView: BaseCurrencyFilterViewDelegate   {
+    func didSelected(_ baseCurrency: String) {
+        viewModel.doFilter(by: baseCurrency)
+    }
+}
+
+struct RateFluctuationDetailView_Previews: PreviewProvider {
     static var previews: some View {
         RateFluctuationDetailView(baseCurrency: "BRL", rateFluctuation:  RateFluctuationModel(symbol: "EUR", change: 8.0003, changePct: 0.1651, endRate: 0.181353))
     }

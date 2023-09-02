@@ -126,6 +126,13 @@ extension RateFluctuationDetailView {
             doFetchRatesHistorical(by: rateFluctuation.symbol)
         }
         
+        func doFilter(by currency: String) {
+            if let rateFluctuation = ratesFluctuation.filter({ $0.symbol == currency }).first {
+                self.rateFluctuation = rateFluctuation
+                doFetchRatesHistorical(by: rateFluctuation.symbol)
+            }
+        }
+        
         private func doFetchRatesFluctuation() {
             if let baseCurrency {
                 let startDate = timeRange.date
