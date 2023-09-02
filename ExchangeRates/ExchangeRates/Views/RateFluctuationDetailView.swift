@@ -28,18 +28,18 @@ struct RateFluctuationDetailView: View {
     
     private var valuesView: some View {
         HStack(alignment: .center, spacing: 8) {
-            Text(rateFluctuation.endRate.formatter(decimalPlaces: 4))
+            Text(viewModel.endRate.formatter(decimalPlaces: 4))
                 .font(.system(size: 28, weight: .bold))
-            Text(rateFluctuation.change.toPercentage(with: true))
+            Text(viewModel.change.toPercentage(with: true))
                 .font(.system(size: 18, weight: .semibold))
-                .foregroundColor(rateFluctuation.changePct.color())
-                .background(rateFluctuation.change.color().opacity(0.2))
-            Text(rateFluctuation.change.formatter(decimalPlaces: 4, with: true))
+                .foregroundColor(viewModel.changePct.color())
+                .background(viewModel.change.color().opacity(0.2))
+            Text(viewModel.change.formatter(decimalPlaces: 4, with: true))
                 .font(.system(size: 18, weight: .semibold))
-                .foregroundColor(rateFluctuation.change.color())
-            Text(rateFluctuation.endRate.formatter(decimalPlaces: 4, with: true))
+                .foregroundColor(viewModel.change.color())
+            Text(viewModel.endRate.formatter(decimalPlaces: 4, with: true))
                 .font(.system(size: 18, weight: .semibold))
-                .foregroundColor(rateFluctuation.change.color())
+                .foregroundColor(viewModel.change.color())
             
             Spacer()
             
