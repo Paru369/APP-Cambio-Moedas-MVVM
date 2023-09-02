@@ -9,11 +9,11 @@ import Foundation
 
 
 protocol RatesHistoricalDataProviderDelegate: DataProviderManagerDelegate {
-    func success(model: RatesHistoricalObject)
+    func success(model: [RateHistoricalModel])
 }
 
 
-class RatesHistoricalDataProvider: DataProviderManager<RatesHistoricalDataProviderDelegate, RatesHistoricalObject> {
+class RatesHistoricalDataProvider: DataProviderManager<RatesHistoricalDataProviderDelegate, [RateHistoricalModel]> {
     
     private let ratesStore: RatesStore
     

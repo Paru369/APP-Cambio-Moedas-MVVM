@@ -12,34 +12,23 @@ import Charts
 
 
 class RateFluctuationViewModel: ObservableObject {
-    @Published var fluctuations: [RateFluctuationModel] = [
-        RateFluctuationModel(symbol: "JPY", change: 0.0008, changePct: 0.0085, endRate: 0.087242),
-        RateFluctuationModel(symbol: "EUR", change: 0.0003, changePct: 0.1651, endRate: 0.181353),
-        RateFluctuationModel(symbol: "GBP", change: -0.0001, changePct: -0.8403, endRate: 0.158915)
-    ]
-    
-    @Published var chartComparations: [RateHistoricalModel] = [
-        RateHistoricalModel(symbol: "USD", period: "2822-11-10".toDate(), endRate: 0.19857),
-        RateHistoricalModel(symbol: "USD", period: "2022-11-15".toDate(), endRate: 0.18857),
-        RateHistoricalModel(symbol: "USD", period: "2022-11-18".toDate(), endRate: 0.177786),
-        RateHistoricalModel(symbol: "USD", period: "2022-11-30".toDate(), endRate: 0.157873)
-    ]
+   
     
     var hasRates: Bool {
-        return chartComparations.filter { $0.endRate > 0 }.count > 0
+        return rateHistorical.filter { $0.endRate > 0 }.count > 0
     }
     
     var yAxisMin: Double {
-        let min = chartComparations.map { $0.endRate }.min() ?? 0.0
+        let min = rateHistorical.map { $0.endRate }.min() ?? 0.0
         return (min - (min * 0.02))
     }
     
     var yAxisMax: Double {
-        let max =  chartComparations.map { $0.endRate }.max() ?? 0.0
+        let max =  rateHistorical.map { $0.endRate }.max() ?? 0.0
         return (max + (max * 0.02))
     }
     
-    @Published var timeRange = TimeRangeEnum.today
+ 
     
     func XAxisLabelFormatstyle(for date: Date) -> String {
         switch timeRange {
@@ -155,7 +144,7 @@ struct RateFluctuationDetailView: View {
     
     private var lineChartView: some View {
         
-        Chart(viewModel.chartComparations) { item in
+        Chart(viewModel.rateHistorical) { item in
             LineMark(
                 x: .value("Period", item.period),
                 y: .value("Rates", item.endRate)
@@ -205,7 +194,7 @@ struct RateFluctuationDetailView: View {
     private var scrollComparationView: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHGrid(rows: [GridItem(.flexible())], alignment: .center) {
-                ForEach(viewModel.fluctuations) { fluctuation in
+                ForEach(viewModel.RateFluctuation) { fluctuation in
                     
                     Button {
                        print("Comparations")
