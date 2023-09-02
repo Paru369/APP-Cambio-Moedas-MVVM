@@ -51,7 +51,7 @@ extension ContentView: CurrencySymbolsDataProviderDelegate {
 }
 
 extension ContentView: RatesHistoricalDataProviderDelegate {
-    func success (model: RatesHistoricalObject) {
+    func success (model: [RateHistoricalModel]) {
         print ("RateHistoricalModel: \(model)\n\n")
     }
 }

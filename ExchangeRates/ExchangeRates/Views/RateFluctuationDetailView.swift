@@ -12,6 +12,7 @@ import Charts
 struct RateFluctuationDetailView: View {
     
     @StateObject var viewModel = ViewModel()
+    
     @State var baseCurrency: String
     @State var rateFluctuation: RateFluctuationModel
     @State private var isPresentedMultipleCurrencyFilter = false
@@ -22,7 +23,7 @@ struct RateFluctuationDetailView: View {
             graphicChartView
             comparationView
         }
-        .navigationTitle("BRL a EUR")
+        .navigationTitle(viewModel.title)
     }
     
     private var valuesView: some View {
@@ -152,7 +153,7 @@ struct RateFluctuationDetailView: View {
     private var scrollComparationView: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHGrid(rows: [GridItem(.flexible())], alignment: .center) {
-                ForEach(viewModel.RateFluctuation) { fluctuation in
+                ForEach(viewModel.ratesFluctuation) { fluctuation in
                     
                     Button {
                        print("Comparations")
