@@ -10,7 +10,7 @@ import SwiftUI
 
 extension RateFluctuationDetailView {
     @MainActor class ViewModel: ObservableObject, RatesFluctuationDataProviderDelegate, RatesHistoricalDataProviderDelegate {
-        @Published var RateFluctuation = [RateFluctuationModel]()
+        @Published var ratesFluctuation = [RateFluctuationModel]()
         @Published var rateHistorical = [RateHistoricalModel]()
         @Published var timeRange = TimeRangeEnum.today
         @Published var baseCurrency: String?
@@ -46,6 +46,7 @@ extension RateFluctuationDetailView {
             case .thisMonth: return "\(change.formatter(decimalPlaces: 4, with: true)) 1 mês"
             case .thisSemester: return "\(change.formatter (decimalPlaces: 4, with: true)) 6 meses"
             case .thisYear: return "\(change.formatter(decimalPlaces: 4, with: true)) 1 ano"
+            }
 
         }
         
@@ -83,14 +84,17 @@ extension RateFluctuationDetailView {
             self.historicalDataProvider?.delegate = self
         }
         
-        func success(model: [RateFluctuationModel]) {
+        nonisolated func success(model: [RateFluctuationModel]) {
             DispatchQueue.main.async {
-                
+                self.rateFluctuation = model.filter({ $0.symbol == self.symbol}).first
+                self.ratesFluctuation = model.filter({ $0.symbol != self.baseCurrency }).sorted { $0.symbol < $1.symbol }
             }
         }
         
-        func success(model: [RateHistoricalModel]) {
-            <#code#>
+       nonisolated func success(model: [RateHistoricalModel]) {
+            DispatchQueue.main.async {
+                self.rateHistorical = model.sorted { $0.period > $1.period }
+            }
         }
     }
 }
