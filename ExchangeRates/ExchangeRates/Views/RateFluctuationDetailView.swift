@@ -68,8 +68,8 @@ struct RateFluctuationDetailView: View {
             } label : {
                 Text("1 dia")
                     .font(.system(size: 14, weight: .bold))
-                    .foregroundColor(.blue)
-                    .underline()
+                    .foregroundColor(viewModel.timeRange == .today ? .blue : .gray)
+                    .underline(viewModel.timeRange == .today)
             }
             
             Button {
@@ -77,7 +77,8 @@ struct RateFluctuationDetailView: View {
             } label : {
                 Text("7 dia")
                     .font(.system(size: 14, weight: .bold))
-                    .foregroundColor(.gray)
+                    .foregroundColor(viewModel.timeRange == .thisWeek ? .blue : .gray)
+                    .underline(viewModel.timeRange == .thisWeek)
             }
             
             Button {
@@ -85,7 +86,8 @@ struct RateFluctuationDetailView: View {
             } label : {
                 Text("1 mês")
                     .font(.system(size: 14, weight: .bold))
-                    .foregroundColor(.gray)
+                    .foregroundColor(viewModel.timeRange == .thisMonth ? .blue : .gray)
+                    .underline(viewModel.timeRange == .thisMonth)
             }
             
             Button {
@@ -93,7 +95,8 @@ struct RateFluctuationDetailView: View {
             } label : {
                 Text("6 meses")
                     .font(.system(size: 14, weight: .bold))
-                    .foregroundColor(.gray)
+                    .foregroundColor(viewModel.timeRange == .thisSemester ? .blue : .gray)
+                    .underline(viewModel.timeRange == .thisSemester)
             }
             
             Button {
@@ -101,7 +104,8 @@ struct RateFluctuationDetailView: View {
             } label : {
                 Text("1 ano")
                     .font(.system(size: 14, weight: .bold))
-                    .foregroundColor(.gray)
+                    .foregroundColor(viewModel.timeRange == .thisYear ? .blue : .gray)
+                    .underline(viewModel.timeRange == .thisYear)
             }
         }
     }
