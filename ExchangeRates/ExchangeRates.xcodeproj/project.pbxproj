@@ -15,9 +15,7 @@
 		410A2FEB2A9BFE1900C449D3 /* RatesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A2FEA2A9BFE1900C449D3 /* RatesRouter.swift */; };
 		410A2FED2A9BFF8600C449D3 /* CurrencyRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A2FEC2A9BFF8600C449D3 /* CurrencyRoute.swift */; };
 		410A2FF02A9C100700C449D3 /* GenericStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A2FEF2A9C100700C449D3 /* GenericStore.swift */; };
-		410A2FF32A9C11E600C449D3 /* RatesFluctuationObejct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A2FF22A9C11E600C449D3 /* RatesFluctuationObejct.swift */; };
 		410A2FF52A9C1A0C00C449D3 /* CurrencySymbolObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A2FF42A9C1A0C00C449D3 /* CurrencySymbolObject.swift */; };
-		410A2FF72A9C1A9400C449D3 /* RatesHistoricalObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A2FF62A9C1A9400C449D3 /* RatesHistoricalObject.swift */; };
 		410A2FF92A9C220B00C449D3 /* RatesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A2FF82A9C220B00C449D3 /* RatesStore.swift */; };
 		410A2FFB2A9C221D00C449D3 /* CurrencyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A2FFA2A9C221D00C449D3 /* CurrencyStore.swift */; };
 		410A2FFD2A9CF5B000C449D3 /* DataProviderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A2FFC2A9CF5B000C449D3 /* DataProviderManager.swift */; };
@@ -49,9 +47,7 @@
 		410A2FEA2A9BFE1900C449D3 /* RatesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesRouter.swift; sourceTree = "<group>"; };
 		410A2FEC2A9BFF8600C449D3 /* CurrencyRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRoute.swift; sourceTree = "<group>"; };
 		410A2FEF2A9C100700C449D3 /* GenericStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericStore.swift; sourceTree = "<group>"; };
-		410A2FF22A9C11E600C449D3 /* RatesFluctuationObejct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesFluctuationObejct.swift; sourceTree = "<group>"; };
 		410A2FF42A9C1A0C00C449D3 /* CurrencySymbolObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencySymbolObject.swift; sourceTree = "<group>"; };
-		410A2FF62A9C1A9400C449D3 /* RatesHistoricalObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesHistoricalObject.swift; sourceTree = "<group>"; };
 		410A2FF82A9C220B00C449D3 /* RatesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesStore.swift; sourceTree = "<group>"; };
 		410A2FFA2A9C221D00C449D3 /* CurrencyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyStore.swift; sourceTree = "<group>"; };
 		410A2FFC2A9CF5B000C449D3 /* DataProviderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProviderManager.swift; sourceTree = "<group>"; };
@@ -176,9 +172,7 @@
 		410A2FF12A9C117600C449D3 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
-				410A2FF22A9C11E600C449D3 /* RatesFluctuationObejct.swift */,
 				410A2FF42A9C1A0C00C449D3 /* CurrencySymbolObject.swift */,
-				410A2FF62A9C1A9400C449D3 /* RatesHistoricalObject.swift */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -310,9 +304,7 @@
 				410A2FF02A9C100700C449D3 /* GenericStore.swift in Sources */,
 				410A301D2AA2042A00C449D3 /* CurrencySymbolModel.swift in Sources */,
 				410A30262AA23F5E00C449D3 /* RatesFluctuationViewModel.swift in Sources */,
-				410A2FF72A9C1A9400C449D3 /* RatesHistoricalObject.swift in Sources */,
 				410A2FD92A9BEEF300C449D3 /* ContentView.swift in Sources */,
-				410A2FF32A9C11E600C449D3 /* RatesFluctuationObejct.swift in Sources */,
 				410A30222AA2074300C449D3 /* BaseCurrencyFilterViewModel.swift in Sources */,
 				410A30032A9CF81F00C449D3 /* RatesHistoricalDataProvider.swift in Sources */,
 				410A2FF52A9C1A0C00C449D3 /* CurrencySymbolObject.swift in Sources */,
