@@ -211,10 +211,6 @@ struct RateFluctuationDetailView: View {
             .padding(.trailing, 8)
         }
     }
-    
-    
-    
-    
 }
 
 extension RateFluctuationDetailView: BaseCurrencyFilterViewDelegate   {
