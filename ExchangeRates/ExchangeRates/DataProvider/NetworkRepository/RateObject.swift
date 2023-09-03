@@ -1,11 +1,12 @@
 //
-//  RatesFluctuationObejct.swift
+//  RateObject.swift
 //  ExchangeRates
 //
-//  Created by Paulo Pinheiro on 8/27/23.
+//  Created by Paulo Pinheiro on 9/2/23.
 //
 
 import Foundation
+
 
 struct RateObject<Rates: Codable>: Codable {
     var base: String?
@@ -29,6 +30,4 @@ struct FluctuationObject: Identifiable, Codable {
     }
 }
 
-
-
-
+typealias RatesHistoricalObject = [String: [String: Double]]
