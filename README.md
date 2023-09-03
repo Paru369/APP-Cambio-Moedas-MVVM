@@ -17,10 +17,12 @@ Repository developed for didactic purposes, with the availability of Bootcamp ac
 - Graphics by Charts
 
 
+
 ## 📱 Technologies and knowledges 
 - SwiftUI 
 - MVVM
 - Modules
+- Combine
 
 ## 📲 Images
 TODO <img align="center" width="200px" src="https://github.com/Paru369/Criptomoedas-VIP/blob/main/images/001.gif"></a>
