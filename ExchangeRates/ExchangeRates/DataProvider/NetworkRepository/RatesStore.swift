@@ -16,7 +16,7 @@ protocol RatesStoreProtocol  {
     func fetchTimeseries(by base: String, from symbol: String, startDate: String, endDate: String) async throws -> RatesHistoricalObject
 }
 
-class RatesStore: BaseStore, RatesStoreProtocol {
+class RatesStore:  GenericStore, RatesStoreProtocol {
     
     func fetchFluctuation(by base: String, from symbols: [String], startDate: String, endDate: String) async throws -> RatesFluctuationObject {
        

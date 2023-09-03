@@ -11,7 +11,7 @@ protocol CurrencyStoreProtocol {
     func fetchSymbols() async throws -> CurrencySymbolObject
 }
 
-class CurrencyStore: BaseStore, CurrencyStoreProtocol {
+class CurrencyStore:  GenericStore, CurrencyStoreProtocol {
     
     func fetchSymbols() async throws -> CurrencySymbolObject {
         guard let urlRequest = try CurrencyRouter.symbols.asUrlRequest() else { throw error }
