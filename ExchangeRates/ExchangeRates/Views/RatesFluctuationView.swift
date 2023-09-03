@@ -207,3 +207,4 @@ struct RatesFluctuationView_Previews: PreviewProvider {
         RatesFluctuationView()
     }
 }
+
